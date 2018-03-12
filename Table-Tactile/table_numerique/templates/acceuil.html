@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}Acceuil{% endblock %}
+
+{% block content %}
+    <div>
+        <h3>Galerie photo</h3>
+        <a class="btn btn-danger" role="button" href="/photos/ajouter_photo">Ajouter une photo</a>
+        <a class="btn btn-danger" role="button" href="/photos/ajouter_theme">Ajouter un thème</a>
+        <a class="btn btn-danger" role="button" href="/admin/galerie_photo">Gérer les données</a>
+    </div>
+    <div>
+        <h3>Visites virtuelles</h3>
+        <a class="btn btn-danger" role="button" href="/visites/ajouter_visite">Ajouter une visite virtuelle</a>
+        <a class="btn btn-danger" role="button" href="/admin/visite_virtuelle/visite">Gérer les visites virtuelles</a>
+    </div>
+    <div>
+        <h3>Sites Web</h3>
+        <a class="btn btn-danger" role="button" href="/sites/ajouter_site">Ajouter un site Web</a>
+        <a class="btn btn-danger" role="button" href="/admin/site_web/site">Gérer les sites Web</a>
+    </div>
+    <div>
+        <h3>Gestion des tables</h3>
+        <a class="btn btn-danger" role="button">Gérer les tables tactiles</a>
+    </div>
+
+{% endblock %}

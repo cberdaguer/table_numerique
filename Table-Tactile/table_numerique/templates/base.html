@@ -1,0 +1,29 @@
+{% load staticfiles %}
+<html>
+    <head>
+        <title>Administration tables numériques</title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">        
+        <link rel="stylesheet" href="{% static 'galerie_photo/css/galerie_photo.css' %}">
+    </head>
+    <body>
+        <div class="page-header">
+            <a href="{% url 'ajouter_photo' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+            <h1><a href="/">Administration tables numériques</a>
+                <img src="{% static 'galerie_photo/logo/Logo_CIP.png' %}" alt="logo"/>
+            </h1>            
+        </div>
+        <div class="content-header">
+            <h2>{% block title %}{%endblock %}</h2>
+        </div>
+
+        <div class="content container">
+            <div class="row">
+                <div class="col-md-8">
+                    {% block content %}
+                    {% endblock %}
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
