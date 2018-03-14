@@ -11,7 +11,11 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
 import os
+import sys
 
+sys.path.append(os.path.abspath("/opt/table_numerique/Table-Tactile/table_numerique/table_numerique"))
+
+from config import *
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -22,12 +26,12 @@ REPOSITORY_ROOT = os.path.dirname(BASE_DIR)
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "$j31!#qb*z=*#*+go#n$cad^s-l41(n7%_ebg)7^8auyxni$a-"
+SECRET_KEY = os.environ.get('Secret')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['192.168.1.21']
+ALLOWED_HOSTS = ['192.168.1.25', '127.0.0.1']
 
 
 # Application definition
