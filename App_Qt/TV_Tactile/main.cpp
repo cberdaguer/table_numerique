@@ -23,7 +23,7 @@ int main(int argc, char *argv[])
     // ---- TELECHARGE IMAGES ----
 
     // Efface le dossier avec les anciennes photos
-    /*
+
     QString CheminImg(QCoreApplication::applicationDirPath());
     QDir Dir(CheminImg);
     if(Dir.exists("Images")) {
@@ -37,9 +37,9 @@ int main(int argc, char *argv[])
         QDownloader* l_imagedl= new QDownloader();
         QFileInfo fi(vecAdrImg.at(i));                                  // Pour savoir si l'image est "jpg", "png",...
         QString l_nomImg(QString::number(i)+"."+fi.suffix());
-        QString URL("http://192.168.1.21:1234/media/"+vecAdrImg.at(i)); // URL de ou sont hebergées les images
+        QString URL("http://192.168.1.25/media/"+vecAdrImg.at(i)); // URL de ou sont hebergées les images
         l_imagedl->setFile(URL,CheminImg,l_nomImg);
-    }*/
+    }
 
     MainWindow Menu;                // La fenetre principal
     Menu.showMaximized();           // Affichage en plein ecran
