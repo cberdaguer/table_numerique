@@ -1,0 +1,10 @@
+<RCC>
+    <qresource prefix="/">
+        <file>test.jpg</file>
+        <file>test2.png</file>
+        <file>Logo_CIP_NB.jpg</file>
+        <file>Logo_CIP_NB_reserve.jpg</file>
+        <file>Logo_CIP_horizontal_res.jpg</file>
+        <file>bouton-retour.jpg</file>
+    </qresource>
+</RCC>
