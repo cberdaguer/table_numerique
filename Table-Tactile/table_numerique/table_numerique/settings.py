@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 import os
 import sys
 
-sys.path.append(os.path.abspath("/opt/table_numerique/Table-Tactile/table_numerique/table_numerique"))
+sys.path.append(os.path.abspath("/Users/charles/Developpement/git_table/Table-Tactile/table_numerique/table_numerique"))
 
 from config import *
 
@@ -31,7 +31,7 @@ SECRET_KEY = os.environ.get('Secret')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['192.168.1.25', '127.0.0.1']
+ALLOWED_HOSTS = ['192.168.1.25', '127.0.0.1', '192.168.1.21']
 
 
 # Application definition
