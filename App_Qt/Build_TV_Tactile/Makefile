@@ -55,7 +55,8 @@ SOURCES       = ../TV_Tactile/main.cpp \
 		../TV_Tactile/appweb.cpp \
 		../TV_Tactile/dbmanager.cpp \
 		../TV_Tactile/qdownloader.cpp \
-		../TV_Tactile/appgalerie.cpp qrc_imagebouton.cpp \
+		../TV_Tactile/appgalerie.cpp \
+		../TV_Tactile/dataimg.cpp qrc_imagebouton.cpp \
 		moc_mainwindow.cpp \
 		moc_appweb.cpp \
 		moc_qdownloader.cpp \
@@ -66,6 +67,7 @@ OBJECTS       = main.o \
 		dbmanager.o \
 		qdownloader.o \
 		appgalerie.o \
+		dataimg.o \
 		qrc_imagebouton.o \
 		moc_mainwindow.o \
 		moc_appweb.o \
@@ -260,12 +262,14 @@ DIST          = /Users/tanguy/Qt5.9.2/5.9.2/clang_64/mkspecs/features/spec_pre.p
 		../TV_Tactile/appweb.h \
 		../TV_Tactile/dbmanager.h \
 		../TV_Tactile/qdownloader.h \
-		../TV_Tactile/appgalerie.h ../TV_Tactile/main.cpp \
+		../TV_Tactile/appgalerie.h \
+		../TV_Tactile/dataimg.h ../TV_Tactile/main.cpp \
 		../TV_Tactile/mainwindow.cpp \
 		../TV_Tactile/appweb.cpp \
 		../TV_Tactile/dbmanager.cpp \
 		../TV_Tactile/qdownloader.cpp \
-		../TV_Tactile/appgalerie.cpp
+		../TV_Tactile/appgalerie.cpp \
+		../TV_Tactile/dataimg.cpp
 QMAKE_TARGET  = TV_Tactile
 DESTDIR       = 
 TARGET        = TV_Tactile.app/Contents/MacOS/TV_Tactile
@@ -713,8 +717,8 @@ distdir: FORCE
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents ../TV_Tactile/imagebouton.qrc $(DISTDIR)/
 	$(COPY_FILE) --parents /Users/tanguy/Qt5.9.2/5.9.2/clang_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../TV_Tactile/mainwindow.h ../TV_Tactile/appweb.h ../TV_Tactile/dbmanager.h ../TV_Tactile/qdownloader.h ../TV_Tactile/appgalerie.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../TV_Tactile/main.cpp ../TV_Tactile/mainwindow.cpp ../TV_Tactile/appweb.cpp ../TV_Tactile/dbmanager.cpp ../TV_Tactile/qdownloader.cpp ../TV_Tactile/appgalerie.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../TV_Tactile/mainwindow.h ../TV_Tactile/appweb.h ../TV_Tactile/dbmanager.h ../TV_Tactile/qdownloader.h ../TV_Tactile/appgalerie.h ../TV_Tactile/dataimg.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../TV_Tactile/main.cpp ../TV_Tactile/mainwindow.cpp ../TV_Tactile/appweb.cpp ../TV_Tactile/dbmanager.cpp ../TV_Tactile/qdownloader.cpp ../TV_Tactile/appgalerie.cpp ../TV_Tactile/dataimg.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../TV_Tactile/mainwindow.ui ../TV_Tactile/appweb.ui ../TV_Tactile/appgalerie.ui $(DISTDIR)/
 
 
@@ -879,6 +883,8 @@ main.o: ../TV_Tactile/main.cpp /Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtWidget
 		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtSql.framework/Headers/qsqlquery.h \
 		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtSql.framework/Headers/QSqlRecord \
 		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtSql.framework/Headers/qsqlrecord.h \
+		../TV_Tactile/dataimg.h \
+		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtCore.framework/Headers/QString.h \
 		../TV_Tactile/qdownloader.h \
 		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtCore.framework/Headers/QObject \
 		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtCore.framework/Headers/qobject.h \
@@ -932,7 +938,9 @@ dbmanager.o: ../TV_Tactile/dbmanager.cpp ../TV_Tactile/dbmanager.h \
 		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtSql.framework/Headers/QSqlQuery \
 		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtSql.framework/Headers/qsqlquery.h \
 		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtSql.framework/Headers/QSqlRecord \
-		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtSql.framework/Headers/qsqlrecord.h
+		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtSql.framework/Headers/qsqlrecord.h \
+		../TV_Tactile/dataimg.h \
+		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtCore.framework/Headers/QString.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o dbmanager.o ../TV_Tactile/dbmanager.cpp
 
 qdownloader.o: ../TV_Tactile/qdownloader.cpp ../TV_Tactile/qdownloader.h \
@@ -963,6 +971,10 @@ appgalerie.o: ../TV_Tactile/appgalerie.cpp ../TV_Tactile/appgalerie.h \
 		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtCore.framework/Headers/qdir.h \
 		ui_appgalerie.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o appgalerie.o ../TV_Tactile/appgalerie.cpp
+
+dataimg.o: ../TV_Tactile/dataimg.cpp ../TV_Tactile/dataimg.h \
+		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtCore.framework/Headers/QString.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o dataimg.o ../TV_Tactile/dataimg.cpp
 
 qrc_imagebouton.o: qrc_imagebouton.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o qrc_imagebouton.o qrc_imagebouton.cpp

@@ -31,7 +31,11 @@ public:
     QGridLayout *gridLayout;
     QVBoxLayout *vLayout_Center;
     QHBoxLayout *hLayout_Up;
+    QVBoxLayout *vLayout_ULeft;
     QLabel *ImgPrincipal;
+    QVBoxLayout *vLayout_URight;
+    QLabel *txtPhotographe;
+    QLabel *txtTitre;
     QHBoxLayout *hLayout_Center;
     QScrollArea *MiniatureScroll;
     QWidget *MiniatureScrollWidgetContents;
@@ -41,7 +45,7 @@ public:
     {
         if (appGalerie->objectName().isEmpty())
             appGalerie->setObjectName(QStringLiteral("appGalerie"));
-        appGalerie->resize(800, 600);
+        appGalerie->resize(721, 523);
         appGalerie->setStyleSheet(QStringLiteral("background-image: url(:/Logo_CIP_horizontal_res.jpg);"));
         centralwidget = new QWidget(appGalerie);
         centralwidget->setObjectName(QStringLiteral("centralwidget"));
@@ -51,10 +55,30 @@ public:
         vLayout_Center->setObjectName(QStringLiteral("vLayout_Center"));
         hLayout_Up = new QHBoxLayout();
         hLayout_Up->setObjectName(QStringLiteral("hLayout_Up"));
+        vLayout_ULeft = new QVBoxLayout();
+        vLayout_ULeft->setObjectName(QStringLiteral("vLayout_ULeft"));
         ImgPrincipal = new QLabel(centralwidget);
         ImgPrincipal->setObjectName(QStringLiteral("ImgPrincipal"));
 
-        hLayout_Up->addWidget(ImgPrincipal);
+        vLayout_ULeft->addWidget(ImgPrincipal);
+
+
+        hLayout_Up->addLayout(vLayout_ULeft);
+
+        vLayout_URight = new QVBoxLayout();
+        vLayout_URight->setObjectName(QStringLiteral("vLayout_URight"));
+        txtPhotographe = new QLabel(centralwidget);
+        txtPhotographe->setObjectName(QStringLiteral("txtPhotographe"));
+
+        vLayout_URight->addWidget(txtPhotographe);
+
+        txtTitre = new QLabel(centralwidget);
+        txtTitre->setObjectName(QStringLiteral("txtTitre"));
+
+        vLayout_URight->addWidget(txtTitre);
+
+
+        hLayout_Up->addLayout(vLayout_URight);
 
 
         vLayout_Center->addLayout(hLayout_Up);
@@ -67,7 +91,7 @@ public:
         MiniatureScroll->setWidgetResizable(true);
         MiniatureScrollWidgetContents = new QWidget();
         MiniatureScrollWidgetContents->setObjectName(QStringLiteral("MiniatureScrollWidgetContents"));
-        MiniatureScrollWidgetContents->setGeometry(QRect(0, 0, 776, 544));
+        MiniatureScrollWidgetContents->setGeometry(QRect(0, 0, 697, 443));
         MiniatureScroll->setWidget(MiniatureScrollWidgetContents);
 
         hLayout_Center->addWidget(MiniatureScroll);
@@ -94,6 +118,8 @@ public:
     {
         appGalerie->setWindowTitle(QApplication::translate("appGalerie", "MainWindow", Q_NULLPTR));
         ImgPrincipal->setText(QString());
+        txtPhotographe->setText(QString());
+        txtTitre->setText(QString());
     } // retranslateUi
 
 };

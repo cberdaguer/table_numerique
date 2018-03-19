@@ -5,6 +5,8 @@
 #include <QPushButton>
 #include <QDir>
 
+#include "dataimg.h"
+
 namespace Ui {
 class appGalerie;
 }
@@ -14,7 +16,7 @@ class appGalerie : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit appGalerie(QWidget *parent = 0);
+    explicit appGalerie(QWidget *parent = 0, QVector<DataImg> img = QVector<DataImg>());
     ~appGalerie();
 
 private:

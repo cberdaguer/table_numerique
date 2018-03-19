@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>721</width>
+    <height>523</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -23,11 +23,33 @@
       <item>
        <layout class="QHBoxLayout" name="hLayout_Up">
         <item>
-         <widget class="QLabel" name="ImgPrincipal">
-          <property name="text">
-           <string/>
-          </property>
-         </widget>
+         <layout class="QVBoxLayout" name="vLayout_ULeft">
+          <item>
+           <widget class="QLabel" name="ImgPrincipal">
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QVBoxLayout" name="vLayout_URight">
+          <item>
+           <widget class="QLabel" name="txtPhotographe">
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="txtTitre">
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+         </layout>
         </item>
        </layout>
       </item>
@@ -46,8 +68,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>776</width>
-             <height>544</height>
+             <width>697</width>
+             <height>443</height>
             </rect>
            </property>
           </widget>

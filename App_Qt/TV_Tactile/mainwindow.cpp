@@ -1,19 +1,21 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "dataimg.h"
 
 // MainWindow correspond à la page principal de l'application
 // Il est possible d'ouvir toutes les applications depuis cette fenetre
 
-MainWindow::MainWindow(QWidget *parent) :
+MainWindow::MainWindow(QWidget *parent,QVector<DataImg> img) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
     // Pre-load les pages web
     wVitrine = new QWebEngineView();
     wVitrine->load(QUrl("http://photo-journalisme.org/"));  // Load site vitrine
     windowWebVitrine = new AppWeb(0,wVitrine);              // Crée la fenetre AppWeb non visible
-    windowGalerie = new appGalerie();
+    windowGalerie = new appGalerie(0,img);
 }
 
 MainWindow::~MainWindow()

@@ -8,6 +8,7 @@
 
 #include "appweb.h"
 #include "appgalerie.h"
+#include "dataimg.h"
 
 #include "iostream"
 using namespace std;
@@ -21,7 +22,7 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit MainWindow(QWidget *parent = 0);
+    explicit MainWindow(QWidget *parent = 0, QVector<DataImg> img = QVector<DataImg>());
     ~MainWindow();
 
 private slots:
@@ -32,10 +33,8 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
-
     AppWeb *windowWebVitrine;
     appGalerie *windowGalerie;
-
     QWebEngineView *wVitrine;
 
 

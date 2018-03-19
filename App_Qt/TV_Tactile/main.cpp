@@ -6,6 +6,7 @@
 #include "mainwindow.h"
 #include "dbmanager.h"
 #include "qdownloader.h"
+#include "dataimg.h"
 
 bool removeDir(const QString & dirName);
 
@@ -18,11 +19,12 @@ int main(int argc, char *argv[])
     // ---- REQUETE DATABASE MYSQL ----
     //DbManager Requete("/Users/tanguy/Desktop/Projet_IMERIR/table_numerique/Table-Tactile/table_numerique/db.sqlite3");
     DbManager Requete("192.168.1.25","table_numerique","tabapplication","tabvisa"); // Requet sur la base de donnée
-    QVector<QString> vecAdrImg = Requete.query_theme("perpignan");                  // Recupére adresse des images
+    QVector<DataImg> vecAdrDataImg = Requete.query_theme_dataImg("perpignan");                  // Recupére adresse des images
 
     // ---- TELECHARGE IMAGES ----
 
     // Efface le dossier avec les anciennes photos
+
 
     QString CheminImg(QCoreApplication::applicationDirPath());
     QDir Dir(CheminImg);
@@ -33,15 +35,22 @@ int main(int argc, char *argv[])
     else Dir.mkdir("Images");
     CheminImg.append("/Images/");
     // Telecharge les photos
-    for (int i=0;i <vecAdrImg.size();i++) {
+    for (int i=0;i <vecAdrDataImg.size();i++) {
         QDownloader* l_imagedl= new QDownloader();
-        QFileInfo fi(vecAdrImg.at(i));                                  // Pour savoir si l'image est "jpg", "png",...
+        QFileInfo fi(vecAdrDataImg.at(i).getAdressePhoto());    // Pour savoir si l'image est "jpg", "png",...
         QString l_nomImg(QString::number(i)+"."+fi.suffix());
-        QString URL("http://192.168.1.25/media/"+vecAdrImg.at(i)); // URL de ou sont hebergées les images
+        //vecAdrDataImg.at(i).setID(i);
+        QString URL("http://192.168.1.25/media/"+vecAdrDataImg.at(i).getAdressePhoto()); // URL de ou sont hebergées les images
         l_imagedl->setFile(URL,CheminImg,l_nomImg);
+        // Pixmap directement dans dataimg
+        QString l_chemin(CheminImg + l_nomImg);  // chemin vers fichier
+        QPixmap l_photo(l_chemin);
+        DataImg l_data = vecAdrDataImg.at(i);
+        l_data.setPhoto(l_photo,700,150);
+        vecAdrDataImg.replace(i,l_data);
     }
 
-    MainWindow Menu;                // La fenetre principal
+    MainWindow Menu(0,vecAdrDataImg);                // La fenetre principal
     Menu.showMaximized();           // Affichage en plein ecran
 
     return app.exec();

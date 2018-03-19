@@ -4,7 +4,8 @@ SOURCES += \
     appweb.cpp \
     dbmanager.cpp \
     qdownloader.cpp \
-    appgalerie.cpp
+    appgalerie.cpp \
+    dataimg.cpp
 
 FORMS += \
     mainwindow.ui \
@@ -16,7 +17,8 @@ HEADERS += \
     appweb.h \
     dbmanager.h \
     qdownloader.h \
-    appgalerie.h
+    appgalerie.h \
+    dataimg.h
 
 QT += \
     widgets \

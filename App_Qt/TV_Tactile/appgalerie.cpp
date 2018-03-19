@@ -1,7 +1,7 @@
 #include "appgalerie.h"
 #include "ui_appgalerie.h"
 
-appGalerie::appGalerie(QWidget *parent) :
+appGalerie::appGalerie(QWidget *parent,QVector<DataImg> img) :
     QMainWindow(parent),
     ui(new Ui::appGalerie)
 {
