@@ -1,35 +1,28 @@
 #include "appgalerie.h"
 #include "ui_appgalerie.h"
 
-appGalerie::appGalerie(QWidget *parent,QVector<DataImg> img) :
+appGalerie::appGalerie(QWidget *parent,QVector<DataImg> vecDataImg) :
     QMainWindow(parent),
     ui(new Ui::appGalerie)
 {
     ui->setupUi(this);
+    this->VecDataImg = vecDataImg;
 
     QHBoxLayout *layout = new QHBoxLayout();
     QVector<QPushButton*> VecBut;   // Vecteur de bouton pour avoir autant de bouton que d'image
-    pathImg.append(QCoreApplication::applicationDirPath()+"/Images");   // Chemin dossier ou les img on ete dl
-    QDir Dir(pathImg);
-    Dir.setNameFilters(QStringList()<<"*.png"<<"*.jpg");    // Choix extentions des fichiers
-    QStringList fileList = Dir.entryList();
-    pathImg.append("/");
-    foreach (QString fichier, fileList) {
-        QString l_chemin(pathImg + fichier);  // chemin vers fichier
-        // Cree 2 QPixmap pour 2 tailles d'image
-        QPixmap l_image(l_chemin);
-        l_image = l_image.scaled(700, 700, Qt::KeepAspectRatioByExpanding);
-        QPixmap l_imagescal = l_image.scaled(150, 150, Qt::KeepAspectRatioByExpanding);
+    foreach (DataImg img, VecDataImg) {
         // On ajoute les images dans des vecteurs pour les avoir dans toutes les methodes de la classe
-        VecImg.push_back(l_image);
-        VecImgScl.push_back(l_imagescal);
+        ui->txtPhotographe->setText(img.getPhotographe());
+        ui->txtTitre->setText(img.getTitre());
+        VecImg.push_back(img.getPhoto());
+        VecImgScl.push_back(img.getMiniature());
 
         QPushButton *bouton = new QPushButton();
-        QIcon ButtonIcon(l_imagescal);  // Ajout de l'image sur un bouton
-        bouton->setText(QString::number(fileList.indexOf(fichier)));    // Ajout du num de bouton pour le recuperer facilement
+        QIcon ButtonIcon(VecImgScl.back());  // Ajout de l'image sur un bouton
+        bouton->setText(QString::number(VecImg.size()-1));    // Ajout du num de bouton pour le recuperer facilement
         bouton->setIcon(ButtonIcon);
-        bouton->setIconSize(l_imagescal.rect().size());
-        bouton->setFixedSize(l_imagescal.rect().size());
+        bouton->setIconSize(VecImgScl.back().rect().size());
+        bouton->setFixedSize(VecImgScl.back().rect().size());
         connect( bouton, &QPushButton::clicked, [=] { on_VecBut_clicked( bouton ); } ); // Connect a la methode on_VecBut_clicked
         VecBut.append(bouton);      // Ajout dans le vecteur
         layout->addWidget(bouton);  // Ajout dans le layout
@@ -45,6 +38,9 @@ appGalerie::~appGalerie()
 
 void appGalerie::on_VecBut_clicked(QPushButton* bouton)
 {
-    ui->ImgPrincipal->setPixmap(VecImg.at(bouton->text().toInt()));
+    int nb_bouton = bouton->text().toInt();
+    ui->ImgPrincipal->setPixmap(VecImg.at(nb_bouton));
+    ui->txtTitre->setText(VecDataImg.at(nb_bouton).getTitre());
+    ui->txtPhotographe->setText(VecDataImg.at(nb_bouton).getPhotographe());
 }
 

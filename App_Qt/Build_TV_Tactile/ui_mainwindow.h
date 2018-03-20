@@ -57,6 +57,7 @@ public:
 "	\n"
 "	border-image: url(:/Logo_CIP_NB_reserve.jpg);\n"
 "}"));
+        BoutonAppWeb->setFlat(false);
         BoutonAppGalerie = new QPushButton(centralwidget);
         BoutonAppGalerie->setObjectName(QStringLiteral("BoutonAppGalerie"));
         BoutonAppGalerie->setGeometry(QRect(380, 40, 281, 191));

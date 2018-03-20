@@ -16,7 +16,7 @@ class appGalerie : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit appGalerie(QWidget *parent = 0, QVector<DataImg> img = QVector<DataImg>());
+    explicit appGalerie(QWidget *parent = 0, QVector<DataImg> vecDataImg = QVector<DataImg>());
     ~appGalerie();
 
 private:
@@ -25,6 +25,7 @@ private:
     QString pathImg;
     QVector<QPixmap> VecImg;
     QVector<QPixmap> VecImgScl;
+    QVector<DataImg> VecDataImg;
 
 };
 

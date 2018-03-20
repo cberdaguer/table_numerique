@@ -53,6 +53,9 @@ bool removeDir(const QString & dirName)
 }
 
 QVector<DataImg> DLSetImg(){
+    // Permet d'ajouter de cree les datas image avec la base de donnee, de telechager les photos
+    // et de les ajouter aux datas
+
     // ---- REQUETE DATABASE MYSQL ----
     //DbManager Requete("/Users/tanguy/Desktop/Projet_IMERIR/table_numerique/Table-Tactile/table_numerique/db.sqlite3");
     DbManager Requete("192.168.1.25","table_numerique","tabapplication","tabvisa"); // Requet sur la base de donnée

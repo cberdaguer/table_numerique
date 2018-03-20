@@ -69,11 +69,36 @@ public:
         vLayout_URight->setObjectName(QStringLiteral("vLayout_URight"));
         txtPhotographe = new QLabel(centralwidget);
         txtPhotographe->setObjectName(QStringLiteral("txtPhotographe"));
+        QPalette palette;
+        QBrush brush(QColor(255, 255, 255, 255));
+        brush.setStyle(Qt::SolidPattern);
+        palette.setBrush(QPalette::Active, QPalette::WindowText, brush);
+        palette.setBrush(QPalette::Active, QPalette::Text, brush);
+        palette.setBrush(QPalette::Active, QPalette::ButtonText, brush);
+        palette.setBrush(QPalette::Inactive, QPalette::WindowText, brush);
+        palette.setBrush(QPalette::Inactive, QPalette::Text, brush);
+        palette.setBrush(QPalette::Inactive, QPalette::ButtonText, brush);
+        palette.setBrush(QPalette::Disabled, QPalette::WindowText, brush);
+        palette.setBrush(QPalette::Disabled, QPalette::Text, brush);
+        palette.setBrush(QPalette::Disabled, QPalette::ButtonText, brush);
+        txtPhotographe->setPalette(palette);
+        QFont font;
+        font.setFamily(QStringLiteral("Times New Roman"));
+        font.setPointSize(28);
+        font.setBold(true);
+        font.setWeight(75);
+        txtPhotographe->setFont(font);
+        txtPhotographe->setStyleSheet(QStringLiteral("color: rgb(255, 255, 255);"));
 
         vLayout_URight->addWidget(txtPhotographe);
 
         txtTitre = new QLabel(centralwidget);
         txtTitre->setObjectName(QStringLiteral("txtTitre"));
+        QFont font1;
+        font1.setFamily(QStringLiteral("Times New Roman"));
+        font1.setPointSize(24);
+        txtTitre->setFont(font1);
+        txtTitre->setStyleSheet(QStringLiteral("color: rgb(255, 255, 255);"));
 
         vLayout_URight->addWidget(txtTitre);
 
@@ -91,7 +116,7 @@ public:
         MiniatureScroll->setWidgetResizable(true);
         MiniatureScrollWidgetContents = new QWidget();
         MiniatureScrollWidgetContents->setObjectName(QStringLiteral("MiniatureScrollWidgetContents"));
-        MiniatureScrollWidgetContents->setGeometry(QRect(0, 0, 697, 443));
+        MiniatureScrollWidgetContents->setGeometry(QRect(0, 0, 697, 416));
         MiniatureScroll->setWidget(MiniatureScrollWidgetContents);
 
         hLayout_Center->addWidget(MiniatureScroll);
