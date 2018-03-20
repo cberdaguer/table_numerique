@@ -91,16 +91,16 @@ QPixmap DataImg::getPhoto() const
     return Photo;
 }
 
+QPixmap DataImg::getMiniature() const
+{
+    return PhotoMiniature;
+}
+
 void DataImg::setPhoto(QPixmap value, int grande, int miniature)
 {
     Photo = value.scaled(grande, grande, Qt::KeepAspectRatioByExpanding);
     PhotoMiniature = value.scaled(miniature, miniature, Qt::KeepAspectRatioByExpanding);
 }
 
-void DataImg::Imgs(QPixmap value, int grande, int miniature)
-{
-    Photo = value.scaled(grande, grande, Qt::KeepAspectRatioByExpanding);
-    PhotoMiniature = value.scaled(miniature, miniature, Qt::KeepAspectRatioByExpanding);
-}
 
 

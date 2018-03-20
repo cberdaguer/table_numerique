@@ -27,15 +27,15 @@ int main(int argc, char *argv[])
 
 
     QString CheminImg(QCoreApplication::applicationDirPath());
-    QDir Dir(CheminImg);
+  /*  QDir Dir(CheminImg);
     if(Dir.exists("Images")) {
         removeDir(CheminImg+"/Images");
         Dir.mkdir("Images");
     }
-    else Dir.mkdir("Images");
+    else Dir.mkdir("Images");*/
     CheminImg.append("/Images/");
     // Telecharge les photos
-    for (int i=0;i <vecAdrDataImg.size();i++) {
+   /*for (int i=0;i <vecAdrDataImg.size();i++) {
         QDownloader* l_imagedl= new QDownloader();
         QFileInfo fi(vecAdrDataImg.at(i).getAdressePhoto());    // Pour savoir si l'image est "jpg", "png",...
         QString l_nomImg(QString::number(i)+"."+fi.suffix());
@@ -50,8 +50,24 @@ int main(int argc, char *argv[])
         vecAdrDataImg.replace(i,l_data);
     }
 
+
+
+
     MainWindow Menu(0,vecAdrDataImg);                // La fenetre principal
     Menu.showMaximized();           // Affichage en plein ecran
+*/
+
+
+    QDir DirImg(CheminImg);
+    DirImg.setNameFilters(QStringList()<<"*.png"<<"*.jpg");    // Choix extentions des fichiers
+    QStringList fileList = DirImg.entryList();
+    foreach (QString file, fileList) {
+        int num = file.section(".",0,0).toInt();
+        QPixmap l_photo(CheminImg + file);
+        DataImg l_data = vecAdrDataImg.at(num);
+        l_data.setPhoto(l_photo,700,150);
+        vecAdrDataImg.replace(num,l_data);
+    }
 
     return app.exec();
 

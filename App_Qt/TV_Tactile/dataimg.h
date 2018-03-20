@@ -1,7 +1,7 @@
 #ifndef DATAIMG_H
 #define DATAIMG_H
 
-#include <QString.h>
+#include <qstring.h>
 #include <QPixmap>
 
 
@@ -10,17 +10,6 @@ class DataImg
 public:
     DataImg();
     DataImg(int id,QString titre,QString photographe,QString contenu,QString date,int themeid);
-
-    int ID;
-    QString Titre;
-    QString Photographe;
-    QString Contenu;
-    QString AdressePhoto;
-    QString Date;
-    int ThemeID;
-    QPixmap Photo;
-    QPixmap PhotoMiniature;
-
 
     int getID() const;
     void setID(int value);
@@ -44,13 +33,21 @@ public:
     void setThemeID(int value);
 
     QPixmap getPhoto() const;
+    QPixmap getMiniature() const;
     void setPhoto(QPixmap value, int grande, int miniature);
 
-    void Imgs(QPixmap value, int grande, int miniature);
 
 protected:
 
-
+    int ID;
+    QString Titre;
+    QString Photographe;
+    QString Contenu;
+    QString AdressePhoto;
+    QString Date;
+    int ThemeID;
+    QPixmap Photo;
+    QPixmap PhotoMiniature;
 
 
 };
