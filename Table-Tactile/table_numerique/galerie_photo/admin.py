@@ -4,7 +4,7 @@ from django.utils.text import Truncator
 
 
 class PhotoAdmin(admin.ModelAdmin):
-    list_display   = ('titre', 'photographe', 'apercu_contenu', 'photo', 'url', 'theme')
+    list_display   = ('titre', 'photographe', 'apercu_contenu', 'photo', 'theme')
     list_filter    = ('photographe','theme',)    
     ordering       = ('theme', )
     search_fields  = ('titre', 'photographe')
