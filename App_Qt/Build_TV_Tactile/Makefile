@@ -747,9 +747,13 @@ compiler_rcc_clean:
 	-$(DEL_FILE) qrc_imagebouton.cpp
 qrc_imagebouton.cpp: ../TV_Tactile/imagebouton.qrc \
 		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/bin/rcc \
+		../TV_Tactile/visite.png \
 		../TV_Tactile/test.jpg \
+		../TV_Tactile/paint.png \
+		../TV_Tactile/galerie.png \
 		../TV_Tactile/Logo_CIP_NB.jpg \
 		../TV_Tactile/Logo_CIP_horizontal_res.jpg \
+		../TV_Tactile/web.png \
 		../TV_Tactile/bouton-retour.jpg \
 		../TV_Tactile/test2.png \
 		../TV_Tactile/Logo_CIP_NB_reserve.jpg
@@ -778,6 +782,8 @@ moc_mainwindow.cpp: /Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtWidgets.framework
 		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtWidgets.framework/Headers/qpushbutton.h \
 		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtCore.framework/Headers/QDir \
 		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtCore.framework/Headers/qdir.h \
+		../TV_Tactile/dataimg.h \
+		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtCore.framework/Headers/qstring.h \
 		../TV_Tactile/mainwindow.h \
 		moc_predefs.h \
 		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/bin/moc
@@ -821,6 +827,10 @@ moc_appgalerie.cpp: /Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtWidgets.framework
 		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtWidgets.framework/Headers/qpushbutton.h \
 		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtCore.framework/Headers/QDir \
 		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtCore.framework/Headers/qdir.h \
+		../TV_Tactile/dataimg.h \
+		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtCore.framework/Headers/qstring.h \
+		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtGui.framework/Headers/QPixmap \
+		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtGui.framework/Headers/qpixmap.h \
 		../TV_Tactile/appgalerie.h \
 		moc_predefs.h \
 		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/bin/moc
@@ -874,6 +884,8 @@ main.o: ../TV_Tactile/main.cpp /Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtWidget
 		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtWidgets.framework/Headers/qpushbutton.h \
 		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtCore.framework/Headers/QDir \
 		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtCore.framework/Headers/qdir.h \
+		../TV_Tactile/dataimg.h \
+		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtCore.framework/Headers/qstring.h \
 		../TV_Tactile/dbmanager.h \
 		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtSql.framework/Headers/QSqlDatabase \
 		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtSql.framework/Headers/qsqldatabase.h \
@@ -883,8 +895,6 @@ main.o: ../TV_Tactile/main.cpp /Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtWidget
 		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtSql.framework/Headers/qsqlquery.h \
 		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtSql.framework/Headers/QSqlRecord \
 		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtSql.framework/Headers/qsqlrecord.h \
-		../TV_Tactile/dataimg.h \
-		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtCore.framework/Headers/QString.h \
 		../TV_Tactile/qdownloader.h \
 		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtCore.framework/Headers/QObject \
 		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtCore.framework/Headers/qobject.h \
@@ -917,6 +927,8 @@ mainwindow.o: ../TV_Tactile/mainwindow.cpp ../TV_Tactile/mainwindow.h \
 		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtWidgets.framework/Headers/qpushbutton.h \
 		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtCore.framework/Headers/QDir \
 		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtCore.framework/Headers/qdir.h \
+		../TV_Tactile/dataimg.h \
+		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtCore.framework/Headers/qstring.h \
 		ui_mainwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../TV_Tactile/mainwindow.cpp
 
@@ -940,7 +952,9 @@ dbmanager.o: ../TV_Tactile/dbmanager.cpp ../TV_Tactile/dbmanager.h \
 		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtSql.framework/Headers/QSqlRecord \
 		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtSql.framework/Headers/qsqlrecord.h \
 		../TV_Tactile/dataimg.h \
-		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtCore.framework/Headers/QString.h
+		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtCore.framework/Headers/qstring.h \
+		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtGui.framework/Headers/QPixmap \
+		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtGui.framework/Headers/qpixmap.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o dbmanager.o ../TV_Tactile/dbmanager.cpp
 
 qdownloader.o: ../TV_Tactile/qdownloader.cpp ../TV_Tactile/qdownloader.h \
@@ -969,11 +983,17 @@ appgalerie.o: ../TV_Tactile/appgalerie.cpp ../TV_Tactile/appgalerie.h \
 		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtWidgets.framework/Headers/qpushbutton.h \
 		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtCore.framework/Headers/QDir \
 		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtCore.framework/Headers/qdir.h \
+		../TV_Tactile/dataimg.h \
+		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtCore.framework/Headers/qstring.h \
+		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtGui.framework/Headers/QPixmap \
+		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtGui.framework/Headers/qpixmap.h \
 		ui_appgalerie.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o appgalerie.o ../TV_Tactile/appgalerie.cpp
 
 dataimg.o: ../TV_Tactile/dataimg.cpp ../TV_Tactile/dataimg.h \
-		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtCore.framework/Headers/QString.h
+		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtCore.framework/Headers/qstring.h \
+		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtGui.framework/Headers/QPixmap \
+		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtGui.framework/Headers/qpixmap.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o dataimg.o ../TV_Tactile/dataimg.cpp
 
 qrc_imagebouton.o: qrc_imagebouton.cpp 

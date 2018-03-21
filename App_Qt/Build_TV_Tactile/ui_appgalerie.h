@@ -36,6 +36,7 @@ public:
     QVBoxLayout *vLayout_URight;
     QLabel *txtPhotographe;
     QLabel *txtTitre;
+    QLabel *txtContenu;
     QHBoxLayout *hLayout_Center;
     QScrollArea *MiniatureScroll;
     QWidget *MiniatureScrollWidgetContents;
@@ -102,6 +103,15 @@ public:
 
         vLayout_URight->addWidget(txtTitre);
 
+        txtContenu = new QLabel(centralwidget);
+        txtContenu->setObjectName(QStringLiteral("txtContenu"));
+        QFont font2;
+        font2.setFamily(QStringLiteral("Times New Roman"));
+        txtContenu->setFont(font2);
+        txtContenu->setStyleSheet(QStringLiteral("color: rgb(255, 255, 255);"));
+
+        vLayout_URight->addWidget(txtContenu);
+
 
         hLayout_Up->addLayout(vLayout_URight);
 
@@ -116,7 +126,7 @@ public:
         MiniatureScroll->setWidgetResizable(true);
         MiniatureScrollWidgetContents = new QWidget();
         MiniatureScrollWidgetContents->setObjectName(QStringLiteral("MiniatureScrollWidgetContents"));
-        MiniatureScrollWidgetContents->setGeometry(QRect(0, 0, 697, 416));
+        MiniatureScrollWidgetContents->setGeometry(QRect(0, 0, 697, 395));
         MiniatureScroll->setWidget(MiniatureScrollWidgetContents);
 
         hLayout_Center->addWidget(MiniatureScroll);
@@ -145,6 +155,7 @@ public:
         ImgPrincipal->setText(QString());
         txtPhotographe->setText(QString());
         txtTitre->setText(QString());
+        txtContenu->setText(QString());
     } // retranslateUi
 
 };

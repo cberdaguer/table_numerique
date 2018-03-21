@@ -23,9 +23,8 @@ private:
     Ui::appGalerie *ui;
     void on_VecBut_clicked(QPushButton *bouton);
     QString pathImg;
-    QVector<QPixmap> VecImg;
-    QVector<QPixmap> VecImgScl;
     QVector<DataImg> VecDataImg;
+    QVector<QPushButton*> VecBut;   // Vecteur de bouton pour avoir autant de bouton que d'image
 
 };
 

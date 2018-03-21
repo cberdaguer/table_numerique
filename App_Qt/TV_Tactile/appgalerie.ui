@@ -160,6 +160,21 @@
             </property>
            </widget>
           </item>
+          <item>
+           <widget class="QLabel" name="txtContenu">
+            <property name="font">
+             <font>
+              <family>Times New Roman</family>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: rgb(255, 255, 255);</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
          </layout>
         </item>
        </layout>
@@ -180,7 +195,7 @@
              <x>0</x>
              <y>0</y>
              <width>697</width>
-             <height>416</height>
+             <height>395</height>
             </rect>
            </property>
           </widget>

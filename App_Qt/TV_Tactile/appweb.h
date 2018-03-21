@@ -14,7 +14,7 @@ class AppWeb : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit AppWeb(QWidget *parent = 0,QWebEngineView *web = 0);
+    explicit AppWeb(QWidget *parent = 0, QWebEngineView *web = 0, QUrl principal = QUrl());
     ~AppWeb();
 
 private slots:
@@ -23,6 +23,7 @@ private slots:
 private:
     Ui::AppWeb *ui;
     QWebEngineView *wViewer;
+    QUrl saveURL;
 };
 
 #endif // APPWEB_H

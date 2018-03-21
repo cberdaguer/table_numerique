@@ -31,11 +31,15 @@ private slots:
 
     void on_BoutonAppGalerie_clicked();
 
+    void on_BoutonAppWeb2_clicked();
+
 private:
     Ui::MainWindow *ui;
     AppWeb *windowWebVitrine;
+    AppWeb *windowWebVisite;
     appGalerie *windowGalerie;
     QWebEngineView *wVitrine;
+    QWebEngineView *wVisite;
 
 
 };

@@ -6,5 +6,9 @@
         <file>Logo_CIP_NB_reserve.jpg</file>
         <file>Logo_CIP_horizontal_res.jpg</file>
         <file>bouton-retour.jpg</file>
+        <file>paint.png</file>
+        <file>web.png</file>
+        <file>galerie.png</file>
+        <file>visite.png</file>
     </qresource>
 </RCC>

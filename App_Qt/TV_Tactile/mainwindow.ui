@@ -24,60 +24,88 @@ background-image: url(:/Logo_CIP_horizontal_res.jpg);</string>
    <widget class="QPushButton" name="BoutonAppWeb">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>40</y>
-      <width>281</width>
-      <height>191</height>
+      <x>60</x>
+      <y>30</y>
+      <width>211</width>
+      <height>211</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">#BoutonAppWeb{
-background-color: transparent;
-	border-image: url(:/Logo_CIP_NB.jpg);
-background: none;
-border: none;
-background-repeat: none;
-}
-#BoutonAppWeb:pressed
-{
-  
-	
-	border-image: url(:/Logo_CIP_NB_reserve.jpg);
-}</string>
+     <string notr="true"/>
     </property>
     <property name="text">
      <string/>
     </property>
+    <property name="icon">
+     <iconset resource="imagebouton.qrc">
+      <normaloff>:/web.png</normaloff>:/web.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>200</width>
+      <height>200</height>
+     </size>
+    </property>
     <property name="flat">
-     <bool>false</bool>
+     <bool>true</bool>
     </property>
    </widget>
    <widget class="QPushButton" name="BoutonAppGalerie">
     <property name="geometry">
      <rect>
-      <x>380</x>
-      <y>40</y>
-      <width>281</width>
-      <height>191</height>
+      <x>570</x>
+      <y>10</y>
+      <width>221</width>
+      <height>221</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">#BoutonAppGalerie{
-background-color: transparent;
-	border-image: url(:/Logo_CIP_NB.jpg);
-background: none;
-border: none;
-background-repeat: none;
-}
-#BoutonAppGalerie:pressed
-{
-  
-	
-	border-image: url(:/Logo_CIP_NB_reserve.jpg);
-}</string>
+     <string notr="true"/>
     </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="icon">
+     <iconset resource="imagebouton.qrc">
+      <normaloff>:/galerie.png</normaloff>:/galerie.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>200</width>
+      <height>200</height>
+     </size>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="BoutonAppWeb2">
+    <property name="geometry">
+     <rect>
+      <x>320</x>
+      <y>30</y>
+      <width>211</width>
+      <height>211</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset resource="imagebouton.qrc">
+      <normaloff>:/web.png</normaloff>:/web.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>200</width>
+      <height>200</height>
+     </size>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
     </property>
    </widget>
   </widget>
@@ -93,6 +121,8 @@ background-repeat: none;
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
- <resources/>
+ <resources>
+  <include location="imagebouton.qrc"/>
+ </resources>
  <connections/>
 </ui>

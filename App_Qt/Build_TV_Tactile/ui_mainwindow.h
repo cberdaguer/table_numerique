@@ -28,6 +28,7 @@ public:
     QWidget *centralwidget;
     QPushButton *BoutonAppWeb;
     QPushButton *BoutonAppGalerie;
+    QPushButton *BoutonAppWeb2;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -43,37 +44,29 @@ public:
         centralwidget->setObjectName(QStringLiteral("centralwidget"));
         BoutonAppWeb = new QPushButton(centralwidget);
         BoutonAppWeb->setObjectName(QStringLiteral("BoutonAppWeb"));
-        BoutonAppWeb->setGeometry(QRect(20, 40, 281, 191));
-        BoutonAppWeb->setStyleSheet(QLatin1String("#BoutonAppWeb{\n"
-"background-color: transparent;\n"
-"	border-image: url(:/Logo_CIP_NB.jpg);\n"
-"background: none;\n"
-"border: none;\n"
-"background-repeat: none;\n"
-"}\n"
-"#BoutonAppWeb:pressed\n"
-"{\n"
-"  \n"
-"	\n"
-"	border-image: url(:/Logo_CIP_NB_reserve.jpg);\n"
-"}"));
-        BoutonAppWeb->setFlat(false);
+        BoutonAppWeb->setGeometry(QRect(60, 30, 211, 211));
+        BoutonAppWeb->setStyleSheet(QStringLiteral(""));
+        QIcon icon;
+        icon.addFile(QStringLiteral(":/web.png"), QSize(), QIcon::Normal, QIcon::Off);
+        BoutonAppWeb->setIcon(icon);
+        BoutonAppWeb->setIconSize(QSize(200, 200));
+        BoutonAppWeb->setFlat(true);
         BoutonAppGalerie = new QPushButton(centralwidget);
         BoutonAppGalerie->setObjectName(QStringLiteral("BoutonAppGalerie"));
-        BoutonAppGalerie->setGeometry(QRect(380, 40, 281, 191));
-        BoutonAppGalerie->setStyleSheet(QLatin1String("#BoutonAppGalerie{\n"
-"background-color: transparent;\n"
-"	border-image: url(:/Logo_CIP_NB.jpg);\n"
-"background: none;\n"
-"border: none;\n"
-"background-repeat: none;\n"
-"}\n"
-"#BoutonAppGalerie:pressed\n"
-"{\n"
-"  \n"
-"	\n"
-"	border-image: url(:/Logo_CIP_NB_reserve.jpg);\n"
-"}"));
+        BoutonAppGalerie->setGeometry(QRect(570, 10, 221, 221));
+        BoutonAppGalerie->setStyleSheet(QStringLiteral(""));
+        QIcon icon1;
+        icon1.addFile(QStringLiteral(":/galerie.png"), QSize(), QIcon::Normal, QIcon::Off);
+        BoutonAppGalerie->setIcon(icon1);
+        BoutonAppGalerie->setIconSize(QSize(200, 200));
+        BoutonAppGalerie->setFlat(true);
+        BoutonAppWeb2 = new QPushButton(centralwidget);
+        BoutonAppWeb2->setObjectName(QStringLiteral("BoutonAppWeb2"));
+        BoutonAppWeb2->setGeometry(QRect(320, 30, 211, 211));
+        BoutonAppWeb2->setStyleSheet(QStringLiteral(""));
+        BoutonAppWeb2->setIcon(icon);
+        BoutonAppWeb2->setIconSize(QSize(200, 200));
+        BoutonAppWeb2->setFlat(true);
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QStringLiteral("menubar"));
@@ -93,6 +86,7 @@ public:
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", Q_NULLPTR));
         BoutonAppWeb->setText(QString());
         BoutonAppGalerie->setText(QString());
+        BoutonAppWeb2->setText(QString());
     } // retranslateUi
 
 };

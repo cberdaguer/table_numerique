@@ -17,8 +17,9 @@ using namespace std;
 int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
-   // QVector<DataImg> vecAdrDataImg = DLSetImg();    // DL photo + ajout photo dans vecAdrDataImg
-    QVector<DataImg> vecAdrDataImg = SetImgSansDL();    //  Ajout photo dans vecAdrDataImg sans dl
+    QVector<DataImg> vecAdrDataImg =  QVector<DataImg>();
+  //  vecAdrDataImg = DLSetImg();    // DL photo + ajout photo dans vecAdrDataImg
+    vecAdrDataImg = SetImgSansDL();    //  Ajout photo dans vecAdrDataImg sans dl
 
     MainWindow Menu(0,vecAdrDataImg);                // La fenetre principal
     Menu.showMaximized();           // Affichage en plein ecran
@@ -65,7 +66,7 @@ QVector<DataImg> DLSetImg(){
     // Efface le dossier avec les anciennes photos
     QDir Dir(QCoreApplication::applicationDirPath());
     if(Dir.exists("Images")) {
-        removeDir(CheminImg+"/Images");
+        removeDir(CheminImg);
         Dir.mkdir("Images");
     }
     else Dir.mkdir("Images");
