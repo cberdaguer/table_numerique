@@ -17,6 +17,8 @@ public:
     explicit AppWeb(QWidget *parent = 0, QWebEngineView *web = 0, QUrl principal = QUrl());
     ~AppWeb();
 
+    void setSaveURL(const QUrl &value);
+
 private slots:
     void on_bRetour_clicked();
 

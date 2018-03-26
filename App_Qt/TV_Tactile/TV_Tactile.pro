@@ -31,3 +31,6 @@ QT += \
 
 RESOURCES += \
     imagebouton.qrc
+
+DISTFILES += \
+    Requete

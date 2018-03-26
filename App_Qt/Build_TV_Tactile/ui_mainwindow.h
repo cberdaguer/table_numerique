@@ -13,6 +13,7 @@
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
+#include <QtWidgets/QComboBox>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
@@ -30,6 +31,8 @@ public:
     QPushButton *BoutonAppWeb;
     QPushButton *BoutonAppGalerie;
     QPushButton *BoutonAppWeb2;
+    QComboBox *cbSite;
+    QComboBox *cbVisite;
     QMenuBar *menubar;
     QStatusBar *statusbar;
     QToolBar *toolBar;
@@ -71,6 +74,12 @@ public:
         BoutonAppWeb2->setIcon(icon2);
         BoutonAppWeb2->setIconSize(QSize(300, 300));
         BoutonAppWeb2->setFlat(true);
+        cbSite = new QComboBox(centralwidget);
+        cbSite->setObjectName(QStringLiteral("cbSite"));
+        cbSite->setGeometry(QRect(170, 460, 221, 28));
+        cbVisite = new QComboBox(centralwidget);
+        cbVisite->setObjectName(QStringLiteral("cbVisite"));
+        cbVisite->setGeometry(QRect(630, 460, 211, 28));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QStringLiteral("menubar"));

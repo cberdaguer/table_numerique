@@ -33,6 +33,11 @@ private slots:
 
     void on_BoutonAppWeb2_clicked();
 
+
+    void on_cbSite_activated(const QString &arg1);
+
+    void on_cbVisite_activated(const QString &arg1);
+
 private:
     Ui::MainWindow *ui;
     AppWeb *windowWebVitrine;
@@ -40,6 +45,8 @@ private:
     appGalerie *windowGalerie;
     QWebEngineView *wVitrine;
     QWebEngineView *wVisite;
+    QMap<QString,QString> mapSite;
+    QMap<QString,QString> mapVisite;
 
 
 };

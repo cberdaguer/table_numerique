@@ -29,3 +29,8 @@ void AppWeb::on_bRetour_clicked()
     AppWeb::close();
 
 }
+
+void AppWeb::setSaveURL(const QUrl &value)
+{
+    saveURL = value;
+}

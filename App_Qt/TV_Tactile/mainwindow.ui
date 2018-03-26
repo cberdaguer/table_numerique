@@ -108,6 +108,26 @@ background-image: url(:/Logo_CIP_horizontal_res.jpg);</string>
      <bool>true</bool>
     </property>
    </widget>
+   <widget class="QComboBox" name="cbSite">
+    <property name="geometry">
+     <rect>
+      <x>170</x>
+      <y>460</y>
+      <width>221</width>
+      <height>28</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="cbVisite">
+    <property name="geometry">
+     <rect>
+      <x>630</x>
+      <y>460</y>
+      <width>211</width>
+      <height>28</height>
+     </rect>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">

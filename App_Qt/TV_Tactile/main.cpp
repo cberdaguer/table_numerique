@@ -19,28 +19,14 @@ int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
     configWindow t;
-    t.exec();
+   // t.exec();
     QVector<DataImg> vecAdrDataImg =  QVector<DataImg>();
-    DbManager test("192.168.1.25","table_numerique","tabapplication","tabvisa");
-    QMap<QString,QString> m = test.query_requete("SELECT site_web_site.name, site_web_site.site, visite_virtuelle_visite.visite, visite_virtuelle_visite.name, galerie_photo_theme.nom, galerie_photo_theme.details FROM gestion_table_table\
-                                                 INNER JOIN gestion_table_table_site\
-                                                 ON (gestion_table_table.id = gestion_table_table_site.table_id)\
-                                                 INNER JOIN site_web_site\
-                                                 ON(site_web_site.id = gestion_table_table_site.site_id)\
-                                                 INNER JOIN gestion_table_table_visite\
-                                                 ON (gestion_table_table.id = gestion_table_table_visite.table_id)\
-                                                 INNER JOIN visite_virtuelle_visite\
-                                                 ON (visite_virtuelle_visite.id = gestion_table_table_visite.visite_id)\
-                                                 INNER JOIN gestion_table_table_galerie\
-                                                 ON (gestion_table_table.id = gestion_table_table_galerie.table_id)\
-                                                 INNER JOIN galerie_photo_theme\
-                                                 ON (galerie_photo_theme.id = gestion_table_table_galerie.theme_id)\
-                                                 WHERE (gestion_table_table.numero = 1);");
+
             //  vecAdrDataImg = DLSetImg();    // DL photo + ajout photo dans vecAdrDataImg
             // vecAdrDataImg = SetImgSansDL();    //  Ajout photo dans vecAdrDataImg sans dl
 
 
-            MainWindow Menu(0,vecAdrDataImg);                // La fenetre principal
+    MainWindow Menu(0,vecAdrDataImg);                // La fenetre principal
     Menu.showMaximized();           // Affichage en plein ecran
 
     return app.exec();

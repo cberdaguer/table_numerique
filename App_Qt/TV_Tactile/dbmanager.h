@@ -17,7 +17,8 @@ public:
     DbManager(const QString& IP, const QString &Name, const QString &UserName, const QString &Password);
     QVector<QString> query_theme(QString ville);
     QVector<DataImg> query_theme_dataImg(QString ville);
-    QMap<QString,QString> query_requete(QString requete);
+    QMap<QString,QVector<QString>>  query_requete(QString requete);
+    QMap<QString,QString> query_site(QString requete);
 
 
     //void showPhoto();

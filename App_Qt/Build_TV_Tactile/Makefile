@@ -77,7 +77,8 @@ OBJECTS       = main.o \
 		moc_qdownloader.o \
 		moc_appgalerie.o \
 		moc_configwindow.o
-DIST          = /Users/tanguy/Qt5.9.2/5.9.2/clang_64/mkspecs/features/spec_pre.prf \
+DIST          = ../TV_Tactile/Requete \
+		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/mkspecs/features/spec_pre.prf \
 		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/mkspecs/qdevice.pri \
 		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/mkspecs/features/device_config.prf \
 		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/mkspecs/common/unix.conf \
