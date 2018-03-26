@@ -27,12 +27,13 @@ appGalerie::appGalerie(QWidget *parent,QVector<DataImg> vecDataImg) :
         layout->addWidget(bouton);  // Ajout dans le layout
         incr++;
     }
-    ui->MiniatureScrollWidgetContents->setLayout(layout);   // Lorsque le for est fini on ajout le Layout dans Scroll
-    ui->ImgPrincipal->setPixmap(VecDataImg.at(0).getPhoto());      // Place la premiere image du vecteur en image Principal
-    ui->txtPhotographe->setText(VecDataImg.at(0).getPhotographe());
-    ui->txtTitre->setText(VecDataImg.at(0).getTitre());
-    //ui->txtContenu->setText(VecDataImg.at(0).getContenu());
-
+    if(!VecDataImg.isEmpty()){
+        ui->MiniatureScrollWidgetContents->setLayout(layout);   // Lorsque le for est fini on ajout le Layout dans Scroll
+        ui->ImgPrincipal->setPixmap(VecDataImg.at(0).getPhoto());      // Place la premiere image du vecteur en image Principal
+        ui->txtPhotographe->setText(VecDataImg.at(0).getPhotographe());
+        ui->txtTitre->setText(VecDataImg.at(0).getTitre());
+        //ui->txtContenu->setText(VecDataImg.at(0).getContenu());
+    }
 }
 
 appGalerie::~appGalerie()
@@ -49,3 +50,10 @@ void appGalerie::on_VecBut_clicked(QPushButton* bouton)
     //ui->txtContenu->setText(VecDataImg.at(nb_bouton).getContenu());
 }
 
+
+void appGalerie::on_bRetour_clicked()
+{
+    //---- bouton Retour ----
+    // Ferme la fenetre au click
+    appGalerie::close();
+}

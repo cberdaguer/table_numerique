@@ -56,11 +56,13 @@ SOURCES       = ../TV_Tactile/main.cpp \
 		../TV_Tactile/dbmanager.cpp \
 		../TV_Tactile/qdownloader.cpp \
 		../TV_Tactile/appgalerie.cpp \
-		../TV_Tactile/dataimg.cpp qrc_imagebouton.cpp \
+		../TV_Tactile/dataimg.cpp \
+		../TV_Tactile/configwindow.cpp qrc_imagebouton.cpp \
 		moc_mainwindow.cpp \
 		moc_appweb.cpp \
 		moc_qdownloader.cpp \
-		moc_appgalerie.cpp
+		moc_appgalerie.cpp \
+		moc_configwindow.cpp
 OBJECTS       = main.o \
 		mainwindow.o \
 		appweb.o \
@@ -68,11 +70,13 @@ OBJECTS       = main.o \
 		qdownloader.o \
 		appgalerie.o \
 		dataimg.o \
+		configwindow.o \
 		qrc_imagebouton.o \
 		moc_mainwindow.o \
 		moc_appweb.o \
 		moc_qdownloader.o \
-		moc_appgalerie.o
+		moc_appgalerie.o \
+		moc_configwindow.o
 DIST          = /Users/tanguy/Qt5.9.2/5.9.2/clang_64/mkspecs/features/spec_pre.prf \
 		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/mkspecs/qdevice.pri \
 		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/mkspecs/features/device_config.prf \
@@ -263,13 +267,15 @@ DIST          = /Users/tanguy/Qt5.9.2/5.9.2/clang_64/mkspecs/features/spec_pre.p
 		../TV_Tactile/dbmanager.h \
 		../TV_Tactile/qdownloader.h \
 		../TV_Tactile/appgalerie.h \
-		../TV_Tactile/dataimg.h ../TV_Tactile/main.cpp \
+		../TV_Tactile/dataimg.h \
+		../TV_Tactile/configwindow.h ../TV_Tactile/main.cpp \
 		../TV_Tactile/mainwindow.cpp \
 		../TV_Tactile/appweb.cpp \
 		../TV_Tactile/dbmanager.cpp \
 		../TV_Tactile/qdownloader.cpp \
 		../TV_Tactile/appgalerie.cpp \
-		../TV_Tactile/dataimg.cpp
+		../TV_Tactile/dataimg.cpp \
+		../TV_Tactile/configwindow.cpp
 QMAKE_TARGET  = TV_Tactile
 DESTDIR       = 
 TARGET        = TV_Tactile.app/Contents/MacOS/TV_Tactile
@@ -283,7 +289,7 @@ EXPORT_ARCH_ARGS = $(foreach arch, $(if $(EXPORT_ACTIVE_ARCHS), $(EXPORT_ACTIVE_
 first: all
 ####### Build rules
 
-$(TARGET): ui_mainwindow.h ui_appweb.h ui_appgalerie.h $(OBJECTS)  
+$(TARGET): ui_mainwindow.h ui_appweb.h ui_appgalerie.h ui_configwindow.h $(OBJECTS)  
 	@test -d TV_Tactile.app/Contents/MacOS/ || mkdir -p TV_Tactile.app/Contents/MacOS/
 	$(LINK) $(LFLAGS) -o $(TARGET) $(OBJECTS) $(OBJCOMP) $(LIBS)
 
@@ -717,9 +723,9 @@ distdir: FORCE
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents ../TV_Tactile/imagebouton.qrc $(DISTDIR)/
 	$(COPY_FILE) --parents /Users/tanguy/Qt5.9.2/5.9.2/clang_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../TV_Tactile/mainwindow.h ../TV_Tactile/appweb.h ../TV_Tactile/dbmanager.h ../TV_Tactile/qdownloader.h ../TV_Tactile/appgalerie.h ../TV_Tactile/dataimg.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../TV_Tactile/main.cpp ../TV_Tactile/mainwindow.cpp ../TV_Tactile/appweb.cpp ../TV_Tactile/dbmanager.cpp ../TV_Tactile/qdownloader.cpp ../TV_Tactile/appgalerie.cpp ../TV_Tactile/dataimg.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../TV_Tactile/mainwindow.ui ../TV_Tactile/appweb.ui ../TV_Tactile/appgalerie.ui $(DISTDIR)/
+	$(COPY_FILE) --parents ../TV_Tactile/mainwindow.h ../TV_Tactile/appweb.h ../TV_Tactile/dbmanager.h ../TV_Tactile/qdownloader.h ../TV_Tactile/appgalerie.h ../TV_Tactile/dataimg.h ../TV_Tactile/configwindow.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../TV_Tactile/main.cpp ../TV_Tactile/mainwindow.cpp ../TV_Tactile/appweb.cpp ../TV_Tactile/dbmanager.cpp ../TV_Tactile/qdownloader.cpp ../TV_Tactile/appgalerie.cpp ../TV_Tactile/dataimg.cpp ../TV_Tactile/configwindow.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../TV_Tactile/mainwindow.ui ../TV_Tactile/appweb.ui ../TV_Tactile/appgalerie.ui ../TV_Tactile/configwindow.ui $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -754,6 +760,7 @@ qrc_imagebouton.cpp: ../TV_Tactile/imagebouton.qrc \
 		../TV_Tactile/Logo_CIP_NB.jpg \
 		../TV_Tactile/Logo_CIP_horizontal_res.jpg \
 		../TV_Tactile/web.png \
+		../TV_Tactile/retour.png \
 		../TV_Tactile/bouton-retour.jpg \
 		../TV_Tactile/test2.png \
 		../TV_Tactile/Logo_CIP_NB_reserve.jpg
@@ -765,9 +772,9 @@ compiler_moc_predefs_clean:
 moc_predefs.h: /Users/tanguy/Qt5.9.2/5.9.2/clang_64/mkspecs/features/data/dummy.cpp
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++ -pipe -stdlib=libc++ -g -std=gnu++11 $(EXPORT_ARCH_ARGS) -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk -mmacosx-version-min=10.10 -Wall -W -dM -E -o moc_predefs.h /Users/tanguy/Qt5.9.2/5.9.2/clang_64/mkspecs/features/data/dummy.cpp
 
-compiler_moc_header_make_all: moc_mainwindow.cpp moc_appweb.cpp moc_qdownloader.cpp moc_appgalerie.cpp
+compiler_moc_header_make_all: moc_mainwindow.cpp moc_appweb.cpp moc_qdownloader.cpp moc_appgalerie.cpp moc_configwindow.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_mainwindow.cpp moc_appweb.cpp moc_qdownloader.cpp moc_appgalerie.cpp
+	-$(DEL_FILE) moc_mainwindow.cpp moc_appweb.cpp moc_qdownloader.cpp moc_appgalerie.cpp moc_configwindow.cpp
 moc_mainwindow.cpp: /Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
 		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
 		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtGui.framework/Headers/QPixmap \
@@ -836,11 +843,18 @@ moc_appgalerie.cpp: /Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtWidgets.framework
 		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/bin/moc
 	/Users/tanguy/Qt5.9.2/5.9.2/clang_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/Users/tanguy/Qt5.9.2/5.9.2/clang_64/mkspecs/macx-clang -I/Users/tanguy/Desktop/Projet_IMERIR/table_numerique/App_Qt/TV_Tactile -I/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtWebEngineWidgets.framework/Headers -I/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtPrintSupport.framework/Headers -I/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtWidgets.framework/Headers -I/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtWebEngineCore.framework/Headers -I/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtQuick.framework/Headers -I/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtGui.framework/Headers -I/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtWebChannel.framework/Headers -I/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtQml.framework/Headers -I/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtNetwork.framework/Headers -I/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtPositioning.framework/Headers -I/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtSql.framework/Headers -I/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/9.0.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/usr/include -F/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib ../TV_Tactile/appgalerie.h -o moc_appgalerie.cpp
 
+moc_configwindow.cpp: /Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtWidgets.framework/Headers/QDialog \
+		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtWidgets.framework/Headers/qdialog.h \
+		../TV_Tactile/configwindow.h \
+		moc_predefs.h \
+		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/bin/moc
+	/Users/tanguy/Qt5.9.2/5.9.2/clang_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/Users/tanguy/Qt5.9.2/5.9.2/clang_64/mkspecs/macx-clang -I/Users/tanguy/Desktop/Projet_IMERIR/table_numerique/App_Qt/TV_Tactile -I/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtWebEngineWidgets.framework/Headers -I/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtPrintSupport.framework/Headers -I/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtWidgets.framework/Headers -I/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtWebEngineCore.framework/Headers -I/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtQuick.framework/Headers -I/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtGui.framework/Headers -I/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtWebChannel.framework/Headers -I/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtQml.framework/Headers -I/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtNetwork.framework/Headers -I/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtPositioning.framework/Headers -I/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtSql.framework/Headers -I/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/9.0.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/usr/include -F/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib ../TV_Tactile/configwindow.h -o moc_configwindow.cpp
+
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
-compiler_uic_make_all: ui_mainwindow.h ui_appweb.h ui_appgalerie.h
+compiler_uic_make_all: ui_mainwindow.h ui_appweb.h ui_appgalerie.h ui_configwindow.h
 compiler_uic_clean:
-	-$(DEL_FILE) ui_mainwindow.h ui_appweb.h ui_appgalerie.h
+	-$(DEL_FILE) ui_mainwindow.h ui_appweb.h ui_appgalerie.h ui_configwindow.h
 ui_mainwindow.h: ../TV_Tactile/mainwindow.ui \
 		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/bin/uic
 	/Users/tanguy/Qt5.9.2/5.9.2/clang_64/bin/uic ../TV_Tactile/mainwindow.ui -o ui_mainwindow.h
@@ -852,6 +866,10 @@ ui_appweb.h: ../TV_Tactile/appweb.ui \
 ui_appgalerie.h: ../TV_Tactile/appgalerie.ui \
 		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/bin/uic
 	/Users/tanguy/Qt5.9.2/5.9.2/clang_64/bin/uic ../TV_Tactile/appgalerie.ui -o ui_appgalerie.h
+
+ui_configwindow.h: ../TV_Tactile/configwindow.ui \
+		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/bin/uic
+	/Users/tanguy/Qt5.9.2/5.9.2/clang_64/bin/uic ../TV_Tactile/configwindow.ui -o ui_configwindow.h
 
 compiler_rez_source_make_all:
 compiler_rez_source_clean:
@@ -909,7 +927,10 @@ main.o: ../TV_Tactile/main.cpp /Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtWidget
 		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtCore.framework/Headers/QStringList \
 		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtCore.framework/Headers/qstringlist.h \
 		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtCore.framework/Headers/QEventLoop \
-		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtCore.framework/Headers/qeventloop.h
+		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtCore.framework/Headers/qeventloop.h \
+		../TV_Tactile/configwindow.h \
+		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtWidgets.framework/Headers/QDialog \
+		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtWidgets.framework/Headers/qdialog.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../TV_Tactile/main.cpp
 
 mainwindow.o: ../TV_Tactile/mainwindow.cpp ../TV_Tactile/mainwindow.h \
@@ -996,6 +1017,12 @@ dataimg.o: ../TV_Tactile/dataimg.cpp ../TV_Tactile/dataimg.h \
 		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtGui.framework/Headers/qpixmap.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o dataimg.o ../TV_Tactile/dataimg.cpp
 
+configwindow.o: ../TV_Tactile/configwindow.cpp ../TV_Tactile/configwindow.h \
+		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtWidgets.framework/Headers/QDialog \
+		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtWidgets.framework/Headers/qdialog.h \
+		ui_configwindow.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o configwindow.o ../TV_Tactile/configwindow.cpp
+
 qrc_imagebouton.o: qrc_imagebouton.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o qrc_imagebouton.o qrc_imagebouton.cpp
 
@@ -1010,6 +1037,9 @@ moc_qdownloader.o: moc_qdownloader.cpp
 
 moc_appgalerie.o: moc_appgalerie.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_appgalerie.o moc_appgalerie.cpp
+
+moc_configwindow.o: moc_configwindow.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_configwindow.o moc_configwindow.cpp
 
 ####### Install
 

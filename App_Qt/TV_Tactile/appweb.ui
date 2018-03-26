@@ -25,10 +25,23 @@
         <item>
          <widget class="QPushButton" name="bRetour">
           <property name="styleSheet">
-           <string notr="true">border-image: url(:/bouton-retour.jpg);</string>
+           <string notr="true"/>
           </property>
           <property name="text">
            <string/>
+          </property>
+          <property name="icon">
+           <iconset resource="imagebouton.qrc">
+            <normaloff>:/retour.png</normaloff>:/retour.png</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>40</width>
+            <height>40</height>
+           </size>
+          </property>
+          <property name="flat">
+           <bool>true</bool>
           </property>
          </widget>
         </item>
@@ -76,6 +89,8 @@
    </layout>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="imagebouton.qrc"/>
+ </resources>
  <connections/>
 </ui>

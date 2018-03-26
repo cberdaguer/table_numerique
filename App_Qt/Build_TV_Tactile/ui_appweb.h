@@ -53,7 +53,12 @@ public:
         hLayout_DLeft->setObjectName(QStringLiteral("hLayout_DLeft"));
         bRetour = new QPushButton(centralwidget);
         bRetour->setObjectName(QStringLiteral("bRetour"));
-        bRetour->setStyleSheet(QStringLiteral("border-image: url(:/bouton-retour.jpg);"));
+        bRetour->setStyleSheet(QStringLiteral(""));
+        QIcon icon;
+        icon.addFile(QStringLiteral(":/retour.png"), QSize(), QIcon::Normal, QIcon::Off);
+        bRetour->setIcon(icon);
+        bRetour->setIconSize(QSize(40, 40));
+        bRetour->setFlat(true);
 
         hLayout_DLeft->addWidget(bRetour);
 

@@ -18,7 +18,9 @@
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
+#include <QtWidgets/QPushButton>
 #include <QtWidgets/QScrollArea>
+#include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
@@ -41,12 +43,17 @@ public:
     QScrollArea *MiniatureScroll;
     QWidget *MiniatureScrollWidgetContents;
     QHBoxLayout *hLayout_Down;
+    QHBoxLayout *horizontalLayout_3;
+    QPushButton *bRetour;
+    QSpacerItem *horizontalSpacer;
+    QHBoxLayout *hLayout_DCenter;
+    QHBoxLayout *hLayout_DRight;
 
     void setupUi(QMainWindow *appGalerie)
     {
         if (appGalerie->objectName().isEmpty())
             appGalerie->setObjectName(QStringLiteral("appGalerie"));
-        appGalerie->resize(721, 523);
+        appGalerie->resize(918, 826);
         appGalerie->setStyleSheet(QStringLiteral("background-image: url(:/Logo_CIP_horizontal_res.jpg);"));
         centralwidget = new QWidget(appGalerie);
         centralwidget->setObjectName(QStringLiteral("centralwidget"));
@@ -90,6 +97,7 @@ public:
         font.setWeight(75);
         txtPhotographe->setFont(font);
         txtPhotographe->setStyleSheet(QStringLiteral("color: rgb(255, 255, 255);"));
+        txtPhotographe->setWordWrap(true);
 
         vLayout_URight->addWidget(txtPhotographe);
 
@@ -100,6 +108,7 @@ public:
         font1.setPointSize(24);
         txtTitre->setFont(font1);
         txtTitre->setStyleSheet(QStringLiteral("color: rgb(255, 255, 255);"));
+        txtTitre->setWordWrap(true);
 
         vLayout_URight->addWidget(txtTitre);
 
@@ -109,6 +118,7 @@ public:
         font2.setFamily(QStringLiteral("Times New Roman"));
         txtContenu->setFont(font2);
         txtContenu->setStyleSheet(QStringLiteral("color: rgb(255, 255, 255);"));
+        txtContenu->setWordWrap(true);
 
         vLayout_URight->addWidget(txtContenu);
 
@@ -126,7 +136,7 @@ public:
         MiniatureScroll->setWidgetResizable(true);
         MiniatureScrollWidgetContents = new QWidget();
         MiniatureScrollWidgetContents->setObjectName(QStringLiteral("MiniatureScrollWidgetContents"));
-        MiniatureScrollWidgetContents->setGeometry(QRect(0, 0, 697, 395));
+        MiniatureScrollWidgetContents->setGeometry(QRect(0, 0, 894, 647));
         MiniatureScroll->setWidget(MiniatureScrollWidgetContents);
 
         hLayout_Center->addWidget(MiniatureScroll);
@@ -136,6 +146,35 @@ public:
 
         hLayout_Down = new QHBoxLayout();
         hLayout_Down->setObjectName(QStringLiteral("hLayout_Down"));
+        horizontalLayout_3 = new QHBoxLayout();
+        horizontalLayout_3->setObjectName(QStringLiteral("horizontalLayout_3"));
+        bRetour = new QPushButton(centralwidget);
+        bRetour->setObjectName(QStringLiteral("bRetour"));
+        QIcon icon;
+        icon.addFile(QStringLiteral(":/retour.png"), QSize(), QIcon::Normal, QIcon::Off);
+        bRetour->setIcon(icon);
+        bRetour->setIconSize(QSize(40, 40));
+        bRetour->setFlat(true);
+
+        horizontalLayout_3->addWidget(bRetour);
+
+        horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_3->addItem(horizontalSpacer);
+
+
+        hLayout_Down->addLayout(horizontalLayout_3);
+
+        hLayout_DCenter = new QHBoxLayout();
+        hLayout_DCenter->setObjectName(QStringLiteral("hLayout_DCenter"));
+
+        hLayout_Down->addLayout(hLayout_DCenter);
+
+        hLayout_DRight = new QHBoxLayout();
+        hLayout_DRight->setObjectName(QStringLiteral("hLayout_DRight"));
+
+        hLayout_Down->addLayout(hLayout_DRight);
+
 
         vLayout_Center->addLayout(hLayout_Down);
 
@@ -156,6 +195,7 @@ public:
         txtPhotographe->setText(QString());
         txtTitre->setText(QString());
         txtContenu->setText(QString());
+        bRetour->setText(QString());
     } // retranslateUi
 
 };

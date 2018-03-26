@@ -99,6 +99,28 @@ QVector<DataImg> DbManager::query_theme_dataImg(QString ville)
                     return out_data;
 }
 
+
+QMap<QString,QString> DbManager::query_requete(QString requete)
+{
+    // Cette fonction permet de renvoyer l'adresse des images pour une ville donnée en entrée
+    QSqlQuery query;
+    QMap<QString,QString> out_data;
+    if(query.exec(requete))
+    {
+        bool test = query.next();
+        while(query.next())
+        {
+            for(int x=0; x < query.record().count(); ++x)
+            {
+                out_data.insert(query.record().fieldName(x),query.value(x).toString());
+                std::cout << "        " << q2c(query.record().fieldName(x)) << " = " << q2c(query.value(x).toString()) << std::endl;
+                //}
+            }
+        }
+    }
+    return out_data;
+}
+
 /*
 void DbManager::showPhoto()
 {

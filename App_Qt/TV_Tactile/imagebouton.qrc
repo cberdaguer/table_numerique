@@ -10,5 +10,6 @@
         <file>web.png</file>
         <file>galerie.png</file>
         <file>visite.png</file>
+        <file>retour.png</file>
     </qresource>
 </RCC>

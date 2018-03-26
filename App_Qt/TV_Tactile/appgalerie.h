@@ -19,6 +19,9 @@ public:
     explicit appGalerie(QWidget *parent = 0, QVector<DataImg> vecDataImg = QVector<DataImg>());
     ~appGalerie();
 
+private slots:
+    void on_bRetour_clicked();
+
 private:
     Ui::appGalerie *ui;
     void on_VecBut_clicked(QPushButton *bouton);

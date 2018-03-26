@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>825</width>
-    <height>541</height>
+    <width>2064</width>
+    <height>1312</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -24,10 +24,10 @@ background-image: url(:/Logo_CIP_horizontal_res.jpg);</string>
    <widget class="QPushButton" name="BoutonAppWeb">
     <property name="geometry">
      <rect>
-      <x>60</x>
-      <y>30</y>
-      <width>211</width>
-      <height>211</height>
+      <x>100</x>
+      <y>110</y>
+      <width>331</width>
+      <height>301</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -42,8 +42,8 @@ background-image: url(:/Logo_CIP_horizontal_res.jpg);</string>
     </property>
     <property name="iconSize">
      <size>
-      <width>200</width>
-      <height>200</height>
+      <width>300</width>
+      <height>300</height>
      </size>
     </property>
     <property name="flat">
@@ -53,10 +53,10 @@ background-image: url(:/Logo_CIP_horizontal_res.jpg);</string>
    <widget class="QPushButton" name="BoutonAppGalerie">
     <property name="geometry">
      <rect>
-      <x>570</x>
-      <y>10</y>
-      <width>221</width>
-      <height>221</height>
+      <x>1010</x>
+      <y>90</y>
+      <width>321</width>
+      <height>321</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -71,8 +71,8 @@ background-image: url(:/Logo_CIP_horizontal_res.jpg);</string>
     </property>
     <property name="iconSize">
      <size>
-      <width>200</width>
-      <height>200</height>
+      <width>300</width>
+      <height>300</height>
      </size>
     </property>
     <property name="flat">
@@ -82,10 +82,10 @@ background-image: url(:/Logo_CIP_horizontal_res.jpg);</string>
    <widget class="QPushButton" name="BoutonAppWeb2">
     <property name="geometry">
      <rect>
-      <x>320</x>
-      <y>30</y>
-      <width>211</width>
-      <height>211</height>
+      <x>550</x>
+      <y>100</y>
+      <width>331</width>
+      <height>301</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -96,12 +96,12 @@ background-image: url(:/Logo_CIP_horizontal_res.jpg);</string>
     </property>
     <property name="icon">
      <iconset resource="imagebouton.qrc">
-      <normaloff>:/web.png</normaloff>:/web.png</iconset>
+      <normaloff>:/visite.png</normaloff>:/visite.png</iconset>
     </property>
     <property name="iconSize">
      <size>
-      <width>200</width>
-      <height>200</height>
+      <width>300</width>
+      <height>300</height>
      </size>
     </property>
     <property name="flat">
@@ -114,12 +114,23 @@ background-image: url(:/Logo_CIP_horizontal_res.jpg);</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>825</width>
+     <width>2064</width>
      <height>22</height>
     </rect>
    </property>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QToolBar" name="toolBar">
+   <property name="windowTitle">
+    <string>toolBar</string>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+  </widget>
  </widget>
  <resources>
   <include location="imagebouton.qrc"/>

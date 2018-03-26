@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>721</width>
-    <height>523</height>
+    <width>918</width>
+    <height>826</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -142,6 +142,9 @@
             <property name="text">
              <string/>
             </property>
+            <property name="wordWrap">
+             <bool>true</bool>
+            </property>
            </widget>
           </item>
           <item>
@@ -158,6 +161,9 @@
             <property name="text">
              <string/>
             </property>
+            <property name="wordWrap">
+             <bool>true</bool>
+            </property>
            </widget>
           </item>
           <item>
@@ -172,6 +178,9 @@
             </property>
             <property name="text">
              <string/>
+            </property>
+            <property name="wordWrap">
+             <bool>true</bool>
             </property>
            </widget>
           </item>
@@ -194,8 +203,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>697</width>
-             <height>395</height>
+             <width>894</width>
+             <height>647</height>
             </rect>
            </property>
           </widget>
@@ -204,13 +213,59 @@
        </layout>
       </item>
       <item>
-       <layout class="QHBoxLayout" name="hLayout_Down"/>
+       <layout class="QHBoxLayout" name="hLayout_Down">
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_3">
+          <item>
+           <widget class="QPushButton" name="bRetour">
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset resource="imagebouton.qrc">
+              <normaloff>:/retour.png</normaloff>:/retour.png</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>40</width>
+              <height>40</height>
+             </size>
+            </property>
+            <property name="flat">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="hLayout_DCenter"/>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="hLayout_DRight"/>
+        </item>
+       </layout>
       </item>
      </layout>
     </item>
    </layout>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="imagebouton.qrc"/>
+ </resources>
  <connections/>
 </ui>
