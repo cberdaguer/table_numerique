@@ -30,9 +30,9 @@ appGalerie::appGalerie(QWidget *parent,QVector<DataImg> vecDataImg) :
     if(!VecDataImg.isEmpty()){
         ui->MiniatureScrollWidgetContents->setLayout(layout);   // Lorsque le for est fini on ajout le Layout dans Scroll
         ui->ImgPrincipal->setPixmap(VecDataImg.at(0).getPhoto());      // Place la premiere image du vecteur en image Principal
-        ui->txtPhotographe->setText(VecDataImg.at(0).getPhotographe());
-        ui->txtTitre->setText(VecDataImg.at(0).getTitre());
-        //ui->txtContenu->setText(VecDataImg.at(0).getContenu());
+        ui->txtPhotographe->setText("Photographe : "+VecDataImg.at(0).getPhotographe());
+        ui->txtTitre->setText("Titre : "+VecDataImg.at(0).getTitre());
+        ui->txtContenu->setText(VecDataImg.at(0).getContenu());
     }
 }
 
@@ -45,9 +45,9 @@ void appGalerie::on_VecBut_clicked(QPushButton* bouton)
 {
     int nb_bouton = bouton->text().toInt();
     ui->ImgPrincipal->setPixmap(VecDataImg.at(nb_bouton).getPhoto());
-    ui->txtTitre->setText(VecDataImg.at(nb_bouton).getTitre());
-    ui->txtPhotographe->setText(VecDataImg.at(nb_bouton).getPhotographe());
-    //ui->txtContenu->setText(VecDataImg.at(nb_bouton).getContenu());
+    ui->txtTitre->setText("Titre : "VecDataImg.at(nb_bouton).getTitre());
+    ui->txtPhotographe->setText("Photographe : "+VecDataImg.at(nb_bouton).getPhotographe());
+    ui->txtContenu->setText(VecDataImg.at(nb_bouton).getContenu());
 }
 
 

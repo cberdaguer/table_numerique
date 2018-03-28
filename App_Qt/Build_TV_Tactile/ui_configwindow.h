@@ -13,6 +13,7 @@
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
+#include <QtWidgets/QComboBox>
 #include <QtWidgets/QDialog>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
@@ -27,21 +28,25 @@ public:
     QSpinBox *spinBox;
     QLabel *label;
     QPushButton *bRetour;
+    QComboBox *comboBox;
 
     void setupUi(QDialog *configWindow)
     {
         if (configWindow->objectName().isEmpty())
             configWindow->setObjectName(QStringLiteral("configWindow"));
-        configWindow->resize(253, 147);
+        configWindow->resize(332, 203);
         spinBox = new QSpinBox(configWindow);
         spinBox->setObjectName(QStringLiteral("spinBox"));
-        spinBox->setGeometry(QRect(180, 60, 47, 29));
+        spinBox->setGeometry(QRect(210, 70, 47, 29));
         label = new QLabel(configWindow);
         label->setObjectName(QStringLiteral("label"));
-        label->setGeometry(QRect(30, 60, 131, 31));
+        label->setGeometry(QRect(50, 70, 131, 31));
         bRetour = new QPushButton(configWindow);
         bRetour->setObjectName(QStringLiteral("bRetour"));
-        bRetour->setGeometry(QRect(180, 100, 51, 24));
+        bRetour->setGeometry(QRect(210, 120, 51, 24));
+        comboBox = new QComboBox(configWindow);
+        comboBox->setObjectName(QStringLiteral("comboBox"));
+        comboBox->setGeometry(QRect(60, 110, 111, 28));
 
         retranslateUi(configWindow);
 

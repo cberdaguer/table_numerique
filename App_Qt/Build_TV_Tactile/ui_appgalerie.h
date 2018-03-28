@@ -36,8 +36,8 @@ public:
     QVBoxLayout *vLayout_ULeft;
     QLabel *ImgPrincipal;
     QVBoxLayout *vLayout_URight;
-    QLabel *txtPhotographe;
     QLabel *txtTitre;
+    QLabel *txtPhotographe;
     QLabel *txtContenu;
     QHBoxLayout *hLayout_Center;
     QScrollArea *MiniatureScroll;
@@ -54,7 +54,7 @@ public:
         if (appGalerie->objectName().isEmpty())
             appGalerie->setObjectName(QStringLiteral("appGalerie"));
         appGalerie->resize(918, 826);
-        appGalerie->setStyleSheet(QStringLiteral("background-image: url(:/Logo_CIP_horizontal_res.jpg);"));
+        appGalerie->setStyleSheet(QStringLiteral("background-image: url(:/Logo_CIP_horizontal_res_fond.jpg);"));
         centralwidget = new QWidget(appGalerie);
         centralwidget->setObjectName(QStringLiteral("centralwidget"));
         gridLayout = new QGridLayout(centralwidget);
@@ -75,6 +75,17 @@ public:
 
         vLayout_URight = new QVBoxLayout();
         vLayout_URight->setObjectName(QStringLiteral("vLayout_URight"));
+        txtTitre = new QLabel(centralwidget);
+        txtTitre->setObjectName(QStringLiteral("txtTitre"));
+        QFont font;
+        font.setFamily(QStringLiteral("Times New Roman"));
+        font.setPointSize(30);
+        txtTitre->setFont(font);
+        txtTitre->setStyleSheet(QStringLiteral("color: rgb(255, 255, 255);"));
+        txtTitre->setWordWrap(true);
+
+        vLayout_URight->addWidget(txtTitre);
+
         txtPhotographe = new QLabel(centralwidget);
         txtPhotographe->setObjectName(QStringLiteral("txtPhotographe"));
         QPalette palette;
@@ -90,34 +101,26 @@ public:
         palette.setBrush(QPalette::Disabled, QPalette::Text, brush);
         palette.setBrush(QPalette::Disabled, QPalette::ButtonText, brush);
         txtPhotographe->setPalette(palette);
-        QFont font;
-        font.setFamily(QStringLiteral("Times New Roman"));
-        font.setPointSize(28);
-        font.setBold(true);
-        font.setWeight(75);
-        txtPhotographe->setFont(font);
+        QFont font1;
+        font1.setFamily(QStringLiteral("Times New Roman"));
+        font1.setPointSize(24);
+        font1.setBold(false);
+        font1.setItalic(true);
+        font1.setWeight(50);
+        txtPhotographe->setFont(font1);
         txtPhotographe->setStyleSheet(QStringLiteral("color: rgb(255, 255, 255);"));
         txtPhotographe->setWordWrap(true);
 
         vLayout_URight->addWidget(txtPhotographe);
 
-        txtTitre = new QLabel(centralwidget);
-        txtTitre->setObjectName(QStringLiteral("txtTitre"));
-        QFont font1;
-        font1.setFamily(QStringLiteral("Times New Roman"));
-        font1.setPointSize(24);
-        txtTitre->setFont(font1);
-        txtTitre->setStyleSheet(QStringLiteral("color: rgb(255, 255, 255);"));
-        txtTitre->setWordWrap(true);
-
-        vLayout_URight->addWidget(txtTitre);
-
         txtContenu = new QLabel(centralwidget);
         txtContenu->setObjectName(QStringLiteral("txtContenu"));
         QFont font2;
         font2.setFamily(QStringLiteral("Times New Roman"));
+        font2.setPointSize(16);
         txtContenu->setFont(font2);
         txtContenu->setStyleSheet(QStringLiteral("color: rgb(255, 255, 255);"));
+        txtContenu->setTextFormat(Qt::RichText);
         txtContenu->setWordWrap(true);
 
         vLayout_URight->addWidget(txtContenu);
@@ -192,8 +195,8 @@ public:
     {
         appGalerie->setWindowTitle(QApplication::translate("appGalerie", "MainWindow", Q_NULLPTR));
         ImgPrincipal->setText(QString());
-        txtPhotographe->setText(QString());
         txtTitre->setText(QString());
+        txtPhotographe->setText(QString());
         txtContenu->setText(QString());
         bRetour->setText(QString());
     } // retranslateUi

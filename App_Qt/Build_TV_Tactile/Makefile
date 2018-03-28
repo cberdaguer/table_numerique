@@ -756,6 +756,7 @@ qrc_imagebouton.cpp: ../TV_Tactile/imagebouton.qrc \
 		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/bin/rcc \
 		../TV_Tactile/visite.png \
 		../TV_Tactile/test.jpg \
+		../TV_Tactile/Logo_CIP_horizontal_res_fond.jpg \
 		../TV_Tactile/paint.png \
 		../TV_Tactile/galerie.png \
 		../TV_Tactile/Logo_CIP_NB.jpg \
@@ -792,6 +793,18 @@ moc_mainwindow.cpp: /Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtWidgets.framework
 		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtCore.framework/Headers/qdir.h \
 		../TV_Tactile/dataimg.h \
 		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtCore.framework/Headers/qstring.h \
+		../TV_Tactile/dbmanager.h \
+		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtSql.framework/Headers/QSqlDatabase \
+		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtSql.framework/Headers/qsqldatabase.h \
+		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtCore.framework/Headers/QDebug \
+		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtCore.framework/Headers/qdebug.h \
+		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtSql.framework/Headers/QSqlQuery \
+		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtSql.framework/Headers/qsqlquery.h \
+		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtSql.framework/Headers/QSqlRecord \
+		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtSql.framework/Headers/qsqlrecord.h \
+		../TV_Tactile/configwindow.h \
+		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtWidgets.framework/Headers/QDialog \
+		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtWidgets.framework/Headers/qdialog.h \
 		../TV_Tactile/mainwindow.h \
 		moc_predefs.h \
 		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/bin/moc
@@ -846,6 +859,19 @@ moc_appgalerie.cpp: /Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtWidgets.framework
 
 moc_configwindow.cpp: /Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtWidgets.framework/Headers/QDialog \
 		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtWidgets.framework/Headers/qdialog.h \
+		../TV_Tactile/dbmanager.h \
+		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtSql.framework/Headers/QSqlDatabase \
+		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtSql.framework/Headers/qsqldatabase.h \
+		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtCore.framework/Headers/QDebug \
+		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtCore.framework/Headers/qdebug.h \
+		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtSql.framework/Headers/QSqlQuery \
+		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtSql.framework/Headers/qsqlquery.h \
+		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtSql.framework/Headers/QSqlRecord \
+		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtSql.framework/Headers/qsqlrecord.h \
+		../TV_Tactile/dataimg.h \
+		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtCore.framework/Headers/qstring.h \
+		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtGui.framework/Headers/QPixmap \
+		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtGui.framework/Headers/qpixmap.h \
 		../TV_Tactile/configwindow.h \
 		moc_predefs.h \
 		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/bin/moc
@@ -914,6 +940,9 @@ main.o: ../TV_Tactile/main.cpp /Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtWidget
 		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtSql.framework/Headers/qsqlquery.h \
 		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtSql.framework/Headers/QSqlRecord \
 		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtSql.framework/Headers/qsqlrecord.h \
+		../TV_Tactile/configwindow.h \
+		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtWidgets.framework/Headers/QDialog \
+		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtWidgets.framework/Headers/qdialog.h \
 		../TV_Tactile/qdownloader.h \
 		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtCore.framework/Headers/QObject \
 		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtCore.framework/Headers/qobject.h \
@@ -928,10 +957,7 @@ main.o: ../TV_Tactile/main.cpp /Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtWidget
 		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtCore.framework/Headers/QStringList \
 		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtCore.framework/Headers/qstringlist.h \
 		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtCore.framework/Headers/QEventLoop \
-		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtCore.framework/Headers/qeventloop.h \
-		../TV_Tactile/configwindow.h \
-		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtWidgets.framework/Headers/QDialog \
-		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtWidgets.framework/Headers/qdialog.h
+		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtCore.framework/Headers/qeventloop.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../TV_Tactile/main.cpp
 
 mainwindow.o: ../TV_Tactile/mainwindow.cpp ../TV_Tactile/mainwindow.h \
@@ -951,6 +977,18 @@ mainwindow.o: ../TV_Tactile/mainwindow.cpp ../TV_Tactile/mainwindow.h \
 		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtCore.framework/Headers/qdir.h \
 		../TV_Tactile/dataimg.h \
 		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtCore.framework/Headers/qstring.h \
+		../TV_Tactile/dbmanager.h \
+		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtSql.framework/Headers/QSqlDatabase \
+		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtSql.framework/Headers/qsqldatabase.h \
+		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtCore.framework/Headers/QDebug \
+		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtCore.framework/Headers/qdebug.h \
+		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtSql.framework/Headers/QSqlQuery \
+		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtSql.framework/Headers/qsqlquery.h \
+		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtSql.framework/Headers/QSqlRecord \
+		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtSql.framework/Headers/qsqlrecord.h \
+		../TV_Tactile/configwindow.h \
+		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtWidgets.framework/Headers/QDialog \
+		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtWidgets.framework/Headers/qdialog.h \
 		ui_mainwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../TV_Tactile/mainwindow.cpp
 
@@ -1021,6 +1059,19 @@ dataimg.o: ../TV_Tactile/dataimg.cpp ../TV_Tactile/dataimg.h \
 configwindow.o: ../TV_Tactile/configwindow.cpp ../TV_Tactile/configwindow.h \
 		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtWidgets.framework/Headers/QDialog \
 		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtWidgets.framework/Headers/qdialog.h \
+		../TV_Tactile/dbmanager.h \
+		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtSql.framework/Headers/QSqlDatabase \
+		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtSql.framework/Headers/qsqldatabase.h \
+		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtCore.framework/Headers/QDebug \
+		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtCore.framework/Headers/qdebug.h \
+		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtSql.framework/Headers/QSqlQuery \
+		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtSql.framework/Headers/qsqlquery.h \
+		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtSql.framework/Headers/QSqlRecord \
+		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtSql.framework/Headers/qsqlrecord.h \
+		../TV_Tactile/dataimg.h \
+		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtCore.framework/Headers/qstring.h \
+		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtGui.framework/Headers/QPixmap \
+		/Users/tanguy/Qt5.9.2/5.9.2/clang_64/lib/QtGui.framework/Headers/qpixmap.h \
 		ui_configwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o configwindow.o ../TV_Tactile/configwindow.cpp
 

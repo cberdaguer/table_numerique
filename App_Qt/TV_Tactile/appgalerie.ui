@@ -14,7 +14,7 @@
    <string>MainWindow</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-image: url(:/Logo_CIP_horizontal_res.jpg);</string>
+   <string notr="true">background-image: url(:/Logo_CIP_horizontal_res_fond.jpg);</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
@@ -35,6 +35,25 @@
         </item>
         <item>
          <layout class="QVBoxLayout" name="vLayout_URight">
+          <item>
+           <widget class="QLabel" name="txtTitre">
+            <property name="font">
+             <font>
+              <family>Times New Roman</family>
+              <pointsize>30</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: rgb(255, 255, 255);</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="wordWrap">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
           <item>
            <widget class="QLabel" name="txtPhotographe">
             <property name="palette">
@@ -131,28 +150,10 @@
             <property name="font">
              <font>
               <family>Times New Roman</family>
-              <pointsize>28</pointsize>
-              <weight>75</weight>
-              <bold>true</bold>
-             </font>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">color: rgb(255, 255, 255);</string>
-            </property>
-            <property name="text">
-             <string/>
-            </property>
-            <property name="wordWrap">
-             <bool>true</bool>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLabel" name="txtTitre">
-            <property name="font">
-             <font>
-              <family>Times New Roman</family>
               <pointsize>24</pointsize>
+              <weight>50</weight>
+              <italic>true</italic>
+              <bold>false</bold>
              </font>
             </property>
             <property name="styleSheet">
@@ -171,6 +172,7 @@
             <property name="font">
              <font>
               <family>Times New Roman</family>
+              <pointsize>16</pointsize>
              </font>
             </property>
             <property name="styleSheet">
@@ -178,6 +180,9 @@
             </property>
             <property name="text">
              <string/>
+            </property>
+            <property name="textFormat">
+             <enum>Qt::RichText</enum>
             </property>
             <property name="wordWrap">
              <bool>true</bool>

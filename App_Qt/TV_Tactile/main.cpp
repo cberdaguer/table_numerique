@@ -19,21 +19,15 @@ int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
     DbManager Requete("192.168.1.25","table_numerique","tabapplication","tabvisa"); // Requet sur la base de donnée
-    configWindow t;
-    int num_table;
-    t.exec();
-    num_table = t.getOutvalue();
-    QVector<QString> themes = Requete.query_all("SELECT galerie_photo_theme.nom FROM gestion_table_table\
-                                                INNER JOIN gestion_table_table_galerie\
-                                                ON (gestion_table_table.id = gestion_table_table_galerie.table_id)\
-                                                INNER JOIN galerie_photo_theme\
-                                                ON (galerie_photo_theme.id = gestion_table_table_galerie.theme_id)\
-                                                WHERE (gestion_table_table.numero = "+QString::number(num_table)+");");
+    configWindow popupwindow;
 
+    popupwindow.exec();
+    int num_table = popupwindow.getOutvalue();
+    QString theme = popupwindow.getOuttheme();
     QVector<DataImg> vecAdrDataImg =  QVector<DataImg>();
 
-     vecAdrDataImg = DLSetImg(Requete,themes.at(0));    // DL photo + ajout photo dans vecAdrDataImg
-     //vecAdrDataImg = SetImgSansDL();    //  Ajout photo dans vecAdrDataImg sans dl
+     vecAdrDataImg = DLSetImg(Requete,theme);    // DL photo + ajout photo dans vecAdrDataImg
+     //vecAdrDataImg = SetImgSansDL(Requete,theme);    //  Ajout photo dans vecAdrDataImg sans dl
 
 
     MainWindow Menu(0,vecAdrDataImg,Requete,num_table);                // La fenetre principal
