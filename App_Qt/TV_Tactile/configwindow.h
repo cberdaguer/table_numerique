@@ -15,8 +15,14 @@ public:
     explicit configWindow(QWidget *parent = 0);
     ~configWindow();
 
+    int getOutvalue() const;
+
+private slots:
+    void on_bRetour_clicked();
+
 private:
     Ui::configWindow *ui;
+    int outvalue;
 };
 
 #endif // CONFIGWINDOW_H

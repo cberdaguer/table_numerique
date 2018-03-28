@@ -9,6 +9,8 @@
 #include "appweb.h"
 #include "appgalerie.h"
 #include "dataimg.h"
+#include "dbmanager.h"
+#include "configwindow.h"
 
 #include "iostream"
 using namespace std;
@@ -22,7 +24,7 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit MainWindow(QWidget *parent = 0, QVector<DataImg> img = QVector<DataImg>());
+    explicit MainWindow(QWidget *parent = 0, QVector<DataImg> img = QVector<DataImg>(), DbManager requete = DbManager(), int num_table = 0);
     ~MainWindow();
 
 private slots:

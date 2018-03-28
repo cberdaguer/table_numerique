@@ -10,7 +10,7 @@
 #include "configwindow.h"
 
 bool removeDir(const QString & dirName);
-QVector<DataImg> DLSetImg();
+QVector<DataImg> DLSetImg(DbManager Requete, QString theme);
 QVector<DataImg> SetImgSansDL();
 
 using namespace std;
@@ -18,15 +18,25 @@ using namespace std;
 int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
+    DbManager Requete("192.168.1.25","table_numerique","tabapplication","tabvisa"); // Requet sur la base de donnée
     configWindow t;
-   // t.exec();
+    int num_table;
+    t.exec();
+    num_table = t.getOutvalue();
+    QVector<QString> themes = Requete.query_all("SELECT galerie_photo_theme.nom FROM gestion_table_table\
+                                                INNER JOIN gestion_table_table_galerie\
+                                                ON (gestion_table_table.id = gestion_table_table_galerie.table_id)\
+                                                INNER JOIN galerie_photo_theme\
+                                                ON (galerie_photo_theme.id = gestion_table_table_galerie.theme_id)\
+                                                WHERE (gestion_table_table.numero = "+QString::number(num_table)+");");
+
     QVector<DataImg> vecAdrDataImg =  QVector<DataImg>();
 
-            //  vecAdrDataImg = DLSetImg();    // DL photo + ajout photo dans vecAdrDataImg
-            // vecAdrDataImg = SetImgSansDL();    //  Ajout photo dans vecAdrDataImg sans dl
+     vecAdrDataImg = DLSetImg(Requete,themes.at(0));    // DL photo + ajout photo dans vecAdrDataImg
+     //vecAdrDataImg = SetImgSansDL();    //  Ajout photo dans vecAdrDataImg sans dl
 
 
-    MainWindow Menu(0,vecAdrDataImg);                // La fenetre principal
+    MainWindow Menu(0,vecAdrDataImg,Requete,num_table);                // La fenetre principal
     Menu.showMaximized();           // Affichage en plein ecran
 
     return app.exec();
@@ -58,14 +68,12 @@ bool removeDir(const QString & dirName)
     return result;
 }
 
-QVector<DataImg> DLSetImg(){
+QVector<DataImg> DLSetImg(DbManager Requete,QString theme){
     // Permet d'ajouter de cree les datas image avec la base de donnee, de telechager les photos
     // et de les ajouter aux datas
 
     // ---- REQUETE DATABASE MYSQL ----
-    //DbManager Requete("/Users/tanguy/Desktop/Projet_IMERIR/table_numerique/Table-Tactile/table_numerique/db.sqlite3");
-    DbManager Requete("192.168.1.25","table_numerique","tabapplication","tabvisa"); // Requet sur la base de donnée
-    QVector<DataImg> vecDataOUT = Requete.query_theme_dataImg("perpignan");                  // Recupére adresse des images
+    QVector<DataImg> vecDataOUT = Requete.query_theme_dataImg(theme);                  // Recupére adresse des images
     QString CheminImg(QCoreApplication::applicationDirPath()+"/Images/");
 
     // Efface le dossier avec les anciennes photos
@@ -80,28 +88,26 @@ QVector<DataImg> DLSetImg(){
         QDownloader* l_imagedl= new QDownloader();
         QFileInfo fi(vecDataOUT.at(i).getAdressePhoto());    // Pour savoir si l'image est "jpg", "png",...
         QString l_nomImg(QString::number(i)+"."+fi.suffix());
-        //vecAdrDataImg.at(i).setID(i);
         QString URL("http://192.168.1.25/media/"+vecDataOUT.at(i).getAdressePhoto()); // URL de ou sont hebergées les images
         l_imagedl->setFile(URL,CheminImg,l_nomImg);
         // Pixmap directement dans dataimg
         QString l_chemin(CheminImg + l_nomImg);  // chemin vers fichier
         QPixmap l_photo(l_chemin);
         DataImg l_data = vecDataOUT.at(i);
-        l_data.setPhoto(l_photo,700,150);
+        l_data.setPhoto(l_photo,600,150);
         vecDataOUT.replace(i,l_data);
     }
     return vecDataOUT;
 }
 
-QVector<DataImg> SetImgSansDL(){
+QVector<DataImg> SetImgSansDL(DbManager Requete,QString theme){
     // Permet d'ajouter de cree les data image avec la base de donnee, et d'ajouter les photos
     // aux datas sans telecharger les images
 
 
     // ---- REQUETE DATABASE MYSQL ----
     //DbManager Requete("/Users/tanguy/Desktop/Projet_IMERIR/table_numerique/Table-Tactile/table_numerique/db.sqlite3");
-    DbManager Requete("192.168.1.25","table_numerique","tabapplication","tabvisa"); // Requet sur la base de donnée
-    QVector<DataImg> vecDataOUT = Requete.query_theme_dataImg("perpignan");                  // Recupére adresse des images
+    QVector<DataImg> vecDataOUT = Requete.query_theme_dataImg(theme);                  // Recupére adresse des images
     QString CheminImg(QCoreApplication::applicationDirPath()+"/Images/");
     QDir DirImg(CheminImg);
     DirImg.setNameFilters(QStringList()<<"*.png"<<"*.jpg");    // Choix extentions des fichiers
@@ -110,7 +116,7 @@ QVector<DataImg> SetImgSansDL(){
         int num = file.section(".",0,0).toInt();    // On recupere le titre qui correspond à la place dans le vecteur
         QPixmap l_photo(CheminImg + file);
         DataImg l_data = vecDataOUT.at(num);
-        l_data.setPhoto(l_photo,700,150);
+        l_data.setPhoto(l_photo,600,150);
         vecDataOUT.replace(num,l_data);
     }
     return vecDataOUT;

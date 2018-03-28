@@ -1,46 +1,28 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "dataimg.h"
-#include "dbmanager.h"
+
 
 // MainWindow correspond à la page principal de l'application
 // Il est possible d'ouvir toutes les applications depuis cette fenetre
 
-MainWindow::MainWindow(QWidget *parent,QVector<DataImg> img) :
+MainWindow::MainWindow(QWidget *parent,QVector<DataImg> img,DbManager requete,int num_table) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    DbManager db("192.168.1.25","table_numerique","tabapplication","tabvisa");
-    mapSite = db.query_site("SELECT site_web_site.name, site_web_site.site FROM gestion_table_table\
+    mapSite = requete.query_site("SELECT site_web_site.name, site_web_site.site from gestion_table_table\
                             INNER JOIN gestion_table_table_site\
                             ON (gestion_table_table.id = gestion_table_table_site.table_id)\
                             INNER JOIN site_web_site\
                             ON(site_web_site.id = gestion_table_table_site.site_id)\
-                            INNER JOIN gestion_table_table_visite\
-                            ON (gestion_table_table.id = gestion_table_table_visite.table_id)\
-                            INNER JOIN visite_virtuelle_visite\
-                            ON (visite_virtuelle_visite.id = gestion_table_table_visite.visite_id)\
-                            INNER JOIN gestion_table_table_galerie\
-                            ON (gestion_table_table.id = gestion_table_table_galerie.table_id)\
-                            INNER JOIN galerie_photo_theme\
-                            ON (galerie_photo_theme.id = gestion_table_table_galerie.theme_id)\
-                            WHERE (gestion_table_table.numero = 1);");
+                            WHERE (gestion_table_table.numero = "+QString::number(num_table)+");");
 
-            mapVisite = db.query_site("SELECT site_web_site.name, visite_virtuelle_visite.visite FROM gestion_table_table\
-                                      INNER JOIN gestion_table_table_site\
-                                      ON (gestion_table_table.id = gestion_table_table_site.table_id)\
-                                      INNER JOIN site_web_site\
-                                      ON(site_web_site.id = gestion_table_table_site.site_id)\
-                                      INNER JOIN gestion_table_table_visite\
-                                      ON (gestion_table_table.id = gestion_table_table_visite.table_id)\
-                                      INNER JOIN visite_virtuelle_visite\
-                                      ON (visite_virtuelle_visite.id = gestion_table_table_visite.visite_id)\
-                                      INNER JOIN gestion_table_table_galerie\
-                                      ON (gestion_table_table.id = gestion_table_table_galerie.table_id)\
-                                      INNER JOIN galerie_photo_theme\
-                                      ON (galerie_photo_theme.id = gestion_table_table_galerie.theme_id)\
-                                      WHERE (gestion_table_table.numero = 1);");
+    mapVisite = requete.query_site("SELECT visite_virtuelle_visite.name, visite_virtuelle_visite.visite from gestion_table_table\
+                              INNER JOIN gestion_table_table_visite\
+                              ON (gestion_table_table.id = gestion_table_table_visite.table_id)\
+                              INNER JOIN visite_virtuelle_visite\
+                              ON (visite_virtuelle_visite.id = gestion_table_table_visite.visite_id)\
+                              WHERE (gestion_table_table.numero = "+QString::number(num_table)+");");
 
     foreach (QString key, mapSite.keys()) ui->cbSite->addItem(key);
     foreach (QString key, mapVisite.keys()) ui->cbVisite->addItem(key);

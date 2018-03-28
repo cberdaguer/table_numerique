@@ -12,3 +12,14 @@ configWindow::~configWindow()
 {
     delete ui;
 }
+
+void configWindow::on_bRetour_clicked()
+{
+    outvalue = ui->spinBox->value();
+    configWindow::close();
+}
+
+int configWindow::getOutvalue() const
+{
+    return outvalue;
+}

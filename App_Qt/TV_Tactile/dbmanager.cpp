@@ -4,6 +4,10 @@
 #define q2c(string) string.toStdString()
 
 // DbManager Permet de se connecter à une base de données
+DbManager::DbManager()
+{
+    qDebug() << "Error: no database";
+}
 
 DbManager::DbManager(const QString& path)
 {
@@ -67,7 +71,7 @@ QVector<QString> DbManager::query_theme(QString ville)
 }
 
 
-QVector<DataImg> DbManager::query_theme_dataImg(QString ville)
+QVector<DataImg> DbManager::query_theme_dataImg(QString theme)
 {
     // Cette fonction permet de renvoyer l'adresse des images pour une ville donnée en entrée
     QSqlQuery query;
@@ -75,7 +79,7 @@ QVector<DataImg> DbManager::query_theme_dataImg(QString ville)
     QString requete("SELECT * FROM galerie_photo_photo\
                     INNER JOIN galerie_photo_theme\
                     ON (galerie_photo_photo.theme_id=galerie_photo_theme.id)\
-                    WHERE(galerie_photo_theme.nom = '"+ville+"')");
+                    WHERE(galerie_photo_theme.nom = '"+theme+"');");
                     if(query.exec(requete))
     {
                         while(query.next())
@@ -90,7 +94,6 @@ QVector<DataImg> DbManager::query_theme_dataImg(QString ville)
                                 else if (!(query.record().fieldName(x).compare("date"))) Img.setDate(query.value(x).toString());
                                 else if(!(query.record().fieldName(x).compare("theme_id"))) Img.setThemeID((query.value(x).toInt()));
 
-                                std::cout << "        " << q2c(query.record().fieldName(x)) << " = " << q2c(query.value(x).toString()) << std::endl;
                                 //}
                             }
                             out_data.push_back(Img);
@@ -99,74 +102,32 @@ QVector<DataImg> DbManager::query_theme_dataImg(QString ville)
                     return out_data;
 }
 
-
-QMap<QString,QVector<QString>> DbManager::query_requete(QString requete)
-{
-    // Cette fonction permet de renvoyer l'adresse des images pour une ville donnée en entrée
-    QSqlQuery query;
-    QMap<QString,QVector<QString>> out_data;
-    if(query.exec(requete))
-    {
-        while(query.next())
-        {
-            for(int x=0; x < query.record().count(); ++x)
-            {
-                if(out_data.contains(query.record().fieldName(x))){
-                    QVector<QString> old = out_data.value(query.record().fieldName(x));
-                    old.append(query.value(x).toString());
-                    out_data.insert(query.record().fieldName(x),old);
-                }
-                else{
-                    QVector<QString> l_new;
-                    l_new.push_back(query.value(x).toString());
-                    out_data.insert(query.record().fieldName(x),l_new);
-                }
-                std::cout << "        " << q2c(query.record().fieldName(x)) << " = " << q2c(query.value(x).toString()) << std::endl;
-                //}
-            }
-        }
-    }
-    return out_data;
-}
-
 QMap<QString,QString> DbManager::query_site(QString requete)
 {
-    // Cette fonction permet de renvoyer l'adresse des images pour une ville donnée en entrée
+    // Permet de recupere dans un QMap la premiere valeur du select en key et la deuxieme en value
     QSqlQuery query;
     QMap<QString,QString> out_data;
     if(query.exec(requete))
     {
         while(query.next())
         {
-
             out_data.insert(query.value(0).toString(),query.value(1).toString());
         }
     }
     return out_data;
 }
-/*
-void DbManager::showPhoto()
+
+
+QVector<QString> DbManager::query_all(QString requete)
 {
-    QSqlQuery query("SELECT * FROM galerie_photo_photo ");
-
-
-    //int idName = query.record().indexOf("photographe");
-    int i=0;
-    while (query.next())
+    QSqlQuery query;
+    QVector<QString> out_data;
+    if(query.exec(requete))
     {
-        QString name = query.value(i).toString();
-        qDebug() << name;
-        i++;
+        while(query.next())
+        {
+            out_data.push_back(query.value(0).toString());
+        }
     }
+    return out_data;
 }
-
-void DbManager::SELECT_FROM_table(QString select, QString from,QString table)
-{
-    QSqlQuery query("SELECT " + select +"FROM " + from);
-    int idName = query.record().indexOf(table);
-    while (query.next())
-    {
-        QString name = query.value(idName).toString();
-        qDebug() << name;
-    }
-}*/

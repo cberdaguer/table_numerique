@@ -14,9 +14,9 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QDialog>
-#include <QtWidgets/QDialogButtonBox>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
+#include <QtWidgets/QPushButton>
 #include <QtWidgets/QSpinBox>
 
 QT_BEGIN_NAMESPACE
@@ -24,30 +24,26 @@ QT_BEGIN_NAMESPACE
 class Ui_configWindow
 {
 public:
-    QDialogButtonBox *buttonBox;
     QSpinBox *spinBox;
     QLabel *label;
+    QPushButton *bRetour;
 
     void setupUi(QDialog *configWindow)
     {
         if (configWindow->objectName().isEmpty())
             configWindow->setObjectName(QStringLiteral("configWindow"));
-        configWindow->resize(315, 179);
-        buttonBox = new QDialogButtonBox(configWindow);
-        buttonBox->setObjectName(QStringLiteral("buttonBox"));
-        buttonBox->setGeometry(QRect(50, 140, 241, 32));
-        buttonBox->setOrientation(Qt::Horizontal);
-        buttonBox->setStandardButtons(QDialogButtonBox::Cancel|QDialogButtonBox::Ok);
+        configWindow->resize(253, 147);
         spinBox = new QSpinBox(configWindow);
         spinBox->setObjectName(QStringLiteral("spinBox"));
-        spinBox->setGeometry(QRect(240, 80, 47, 29));
+        spinBox->setGeometry(QRect(180, 60, 47, 29));
         label = new QLabel(configWindow);
         label->setObjectName(QStringLiteral("label"));
-        label->setGeometry(QRect(90, 80, 131, 31));
+        label->setGeometry(QRect(30, 60, 131, 31));
+        bRetour = new QPushButton(configWindow);
+        bRetour->setObjectName(QStringLiteral("bRetour"));
+        bRetour->setGeometry(QRect(180, 100, 51, 24));
 
         retranslateUi(configWindow);
-        QObject::connect(buttonBox, SIGNAL(accepted()), configWindow, SLOT(accept()));
-        QObject::connect(buttonBox, SIGNAL(rejected()), configWindow, SLOT(reject()));
 
         QMetaObject::connectSlotsByName(configWindow);
     } // setupUi
@@ -56,6 +52,7 @@ public:
     {
         configWindow->setWindowTitle(QApplication::translate("configWindow", "Dialog", Q_NULLPTR));
         label->setText(QApplication::translate("configWindow", "Selection de la table", Q_NULLPTR));
+        bRetour->setText(QApplication::translate("configWindow", "OK", Q_NULLPTR));
     } // retranslateUi
 
 };
